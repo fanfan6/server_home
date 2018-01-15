@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>天启风控报告</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <meta name="description" content="Developed By M Abdur Rokib Promy">
+        <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
+        <!-- bootstrap 3.0.2 -->
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- font Awesome -->
+        <link href="/static/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+        <link href="/static/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <!-- Theme style -->
+        <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <script src="/static/js/echarts.min.js"></script>
+        <script src="/static/js/macarons.js"></script>
+</head>
+<body style="width: 80%; margin: 0 auto;">
+<div class="headers">
+    <div class="report_type"> <h1>天启智创信用评估报告</h1></div>
+    {% if report_type == 201 %}
+        <div><h3>类型：风控数据服务类报告</h3></div>
+    {% else %}
+        <div><h3>类型：风控决策引擎类报告</h3></div>
+    {% endif %}
+
+    <div style="font-size: 0.8em">注：以下数据皆来自天启数据</div>
+</div>
+<div class="row user-info">
+    <div class="col-md-12" style="padding-bottom: 15px;"><h3>姓名:{{ user_info.name }}</h3> </div>
+    <div class="col-md-4" style="font-size: 1.2em; padding-bottom: 12px;">身份证号：{{ user_info.idcard }}</div>
+    <div class="col-md-8" style="font-size: 1.2em; padding-bottom: 12px;">性别：{{ user_info.gender }}</div>
+    <div class="col-md-4" style="font-size: 1.2em; padding-bottom: 12px;">手机号：{{ user_info.phone }}</div>
+    <div class="col-md-8" style="font-size: 1.2em; padding-bottom: 12px;">年龄：{{ user_info.base_info.age }}</div>
+</div>
+
+<section class="row">
+    <div class="col-md-6 report-summary" style="padding-left: 100px;"><h2>信用分总估</h2>{{ credit_report_summary.0.module }}</div>
+    <div class="col-md-6 report-summary" style="padding-left: 100px;"><h2>信用分总估</h2>{{ credit_report_summary.1.module }}</div>
+    <div class="row">
+        <div class="col-md-6" id="main" style="height: 400px;"></div>
+        <div class="col-md-6" id="main2" style="height: 400px;"></div>
+        <script type="text/javascript">
+            var myChart = echarts.init(document.getElementById('main'), 'macarons');
+            var option = {
+                tooltip : {
+                    formatter: "{a} <br/>{b} : {c}%"
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                series: [
+                    {
+                        name: '业务指标',
+                        type: 'gauge',
+                        min: '200',
+                        max: '1000',
+                        title : {
+                            textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                                fontWeight: 'bolder',
+                                fontSize: 20,
+                                fontStyle: 'italic'
+                            }
+                        },
+                        detail: {
+                            textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                                fontWeight: 'bolder'
+                            },
+                            formatter:'{{ credit_report_summary.0.score }}'
+                        },
+                        axisLine: {            // 坐标轴线
+                            lineStyle: {       // 属性lineStyle控制线条样式
+                                color: [[0.2, '#c23531'], [0.8, '#63869e'], [1, '#91c7ae']],
+                            }
+                        },
+                        data: [{value: {{ credit_report_summary.0.score }}, name: '信用分'}]
+                    }
+                    ]
+                };
+            myChart.setOption(option);
+        </script>
+    </div>
+    <div class="row">
+        <script type="text/javascript">
+            var myChart = echarts.init(document.getElementById('main2'), 'macarons');
+            var option = {
+                tooltip : {
+                    formatter: "{a} <br/>{b} : {c}%"
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                series: [
+                    {
+                        name: '业务指标',
+                        type: 'gauge',
+                        min: '200',
+                        max: '1000',
+                        title : {
+                            textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                                fontWeight: 'bolder',
+                                fontSize: 20,
+                                fontStyle: 'italic'
+                            }
+                        },
+                        detail: {
+                            textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                                fontWeight: 'bolder'
+                            },
+                            formatter:'{{ credit_report_summary.1.score }}'
+                        },
+                        axisLine: {            // 坐标轴线
+                            lineStyle: {       // 属性lineStyle控制线条样式
+                                color: [[0.2, '#c23531'], [0.8, '#63869e'], [1, '#91c7ae']],
+                            }
+                        },
+                        data: [{value: {{ credit_report_summary.1.score }}, name: '信用分'}]
+                    }
+                    ]
+                };
+            myChart.setOption(option);
+        </script>
+    </div>
+</section>
+
+<div class="row">
+        <div class="col-xs-12">
+            <div class="panel">
+                <header class="panel-heading">
+                    详细状况
+                </header>
+                <div class="panel-body table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>特征</th>
+                                <th>值</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>用户行为特征1</td>
+                                <td>{{ res.sub_features.behavior_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户行为特征2</td>
+                                <td>{{ res.sub_features.behavior_level_2 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户行为特征3</td>
+                                <td>{{ res.sub_features.behavior_level_3 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户社交特征1</td>
+                                <td>{{ res.sub_features.social_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户社交特征2</td>
+                                <td>{{ res.sub_features.social_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户社交特征3</td>
+                                <td>{{ res.sub_features.social_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户稳定性特征1</td>
+                                <td>{{ res.sub_features.stable_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户稳定性特征2</td>
+                                <td>{{ res.sub_features.stable_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户稳定性特征3</td>
+                                <td>{{ res.sub_features.stable_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户欺诈特征1</td>
+                                <td>{{ res.sub_features.fraud_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户欺诈特征2</td>
+                                <td>{{ res.sub_features.fraud_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户欺诈特征3</td>
+                                <td>{{ res.sub_features.fraud_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户表现特征1</td>
+                                <td>{{ res.sub_features.performance_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户表现特征2</td>
+                                <td>{{ res.sub_features.performance_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户表现特征3</td>
+                                <td>{{ res.sub_features.performance_level_1 }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div style="height: 20px;"></div>
+
+</body>
+
+</html>

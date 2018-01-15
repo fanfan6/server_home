@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{%load staticfiles%}
+
+{% block nav %}
+    <li class="active">
+        <a href="/info/search">
+            <i class="fa fa-search-minus"></i> <span>查询服务</span>
+        </a>
+    </li>
+    <li class="active">
+        <a href="/info/service">
+            <i class="fa fa-search-minus"></i> <span>报告服务</span>
+        </a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    查询表单
+                </header>
+                <div class="panel-body">
+                  <form class="form-inline" role="form" action="/info/search_info" method="get" accept-charset="UTF-8">
+                      <div class="form-group">
+                          <label class="sr-only" for="id">身份证号</label>
+                          <input type="text" class="form-control" id="id" placeholder="身份证号" name="idcard">
+                      </div>
+                      <div class="form-group">
+                          <label class="sr-only" for="phone">手机号</label>
+                          <input type="text" class="form-control" id="phone" placeholder="手机号" name="phone">
+                      </div>
+                      <div class="form-group">
+                          <label class="sr-only" for="name">姓名</label>
+                          <input type="text" class="form-control" id="name" placeholder="姓名" name="name">
+                      </div>
+                      <div class="form-group">
+                          <label class="sr-only" for="service">服务</label>
+                          <select class="form-control" id="service" name="service">
+                              <option value="s02">S19</option>
+                              <option value="s03">S03</option>
+                          </select>
+                      </div>
+
+                      <input type="submit" class="btn btn-success" value="搜索" >
+                  </form>
+
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel">
+                <header class="panel-heading">
+                    查询结果
+                    <a class="btn btn-success btn-sm pull-right" href="/info/report/{{ res.report_id }}">查看报告</a>
+                </header>
+                <div class="panel-body table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>信用分(V2)</th>
+                                <th>模型分(V1)</th>
+                                <th>是否命中黑名单</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ res.credit_score }}</td>
+                                <td>{{ res.model_score }}</td>
+                                <td>{{ res.is_black }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel">
+                <header class="panel-heading">
+                    详细状况
+                </header>
+                <div class="panel-body table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>特征</th>
+                                <th>值</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>用户行为特征1</td>
+                                <td>{{ res.sub_features.behavior_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户行为特征2</td>
+                                <td>{{ res.sub_features.behavior_level_2 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户行为特征3</td>
+                                <td>{{ res.sub_features.behavior_level_3 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户社交特征1</td>
+                                <td>{{ res.sub_features.social_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户社交特征2</td>
+                                <td>{{ res.sub_features.social_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户社交特征3</td>
+                                <td>{{ res.sub_features.social_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户稳定性特征1</td>
+                                <td>{{ res.sub_features.stable_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户稳定性特征2</td>
+                                <td>{{ res.sub_features.stable_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户稳定性特征3</td>
+                                <td>{{ res.sub_features.stable_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户欺诈特征1</td>
+                                <td>{{ res.sub_features.fraud_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户欺诈特征2</td>
+                                <td>{{ res.sub_features.fraud_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户欺诈特征3</td>
+                                <td>{{ res.sub_features.fraud_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户表现特征1</td>
+                                <td>{{ res.sub_features.performance_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户表现特征2</td>
+                                <td>{{ res.sub_features.performance_level_1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>用户表现特征3</td>
+                                <td>{{ res.sub_features.performance_level_1 }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

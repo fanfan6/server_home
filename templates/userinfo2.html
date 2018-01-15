@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>天启风控报告</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <meta name="description" content="Developed By M Abdur Rokib Promy">
+        <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
+        <!-- bootstrap 3.0.2 -->
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- font Awesome -->
+        <link href="/static/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+        <link href="/static/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <!-- Theme style -->
+        <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <script src="/static/js/echarts.min.js"></script>
+        <script src="/static/js/macarons.js"></script>
+</head>
+<body style="width: 80%; margin: 0 auto;">
+<div class="headers">
+    <div class="report_type"> <h1>天启智创信用评估报告</h1></div>
+    {% if report_type == 201 %}
+        <div><h3>类型：风控数据服务类报告</h3></div>
+    {% else %}
+        <div><h3>类型：风控决策引擎类报告</h3></div>
+    {% endif %}
+
+    <div style="font-size: 0.8em">注：以下数据皆来自天启数据</div>
+</div>
+<div class="row user-info">
+    <div class="col-md-12" style="padding-bottom: 15px;"><h3>姓名:{{ user_info.name }}</h3> </div>
+    <div class="col-md-4" style="font-size: 1.2em; padding-bottom: 12px;">身份证号：{{ user_info.idcard }}</div>
+    <div class="col-md-8" style="font-size: 1.2em; padding-bottom: 12px;">性别：{{ user_info.gender }}</div>
+    <div class="col-md-4" style="font-size: 1.2em; padding-bottom: 12px;">手机号：{{ user_info.phone }}</div>
+    <div class="col-md-8" style="font-size: 1.2em; padding-bottom: 12px;">年龄：{{ user_info.base_info.age }}</div>
+</div>
+
+<section class="row">
+    <div class="col-md-12 report-summary" style="padding-left: 100px;"><h2>信用分总估</h2>{{ credit_report_summary.0.module }}</div>
+    <div class="row">
+        <div class="col-md-6" id="main" style="height: 400px;"></div>
+        <div class="col-md-6" id="main1" style="height: 400px;"></div>
+{#        <div class="col-md-3" style="padding-left: 58px; font-size: 1.2em;">黑名单：{{ is_black }}</div>#}
+{#        <div class="col-md-3" style="padding-left: 58px; font-size: 1.2em;">欺诈分：{{ base_info.fraud_level }}</div>#}
+        <script type="text/javascript">
+            var myChart = echarts.init(document.getElementById('main'), 'macarons');
+            var option = {
+                tooltip : {
+                    formatter: "{a} <br/>{b} : {c}%"
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                series: [
+                    {
+                        name: '业务指标',
+                        type: 'gauge',
+                        min: '200',
+                        max: '1000',
+                        title : {
+                            textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                                fontWeight: 'bolder',
+                                fontSize: 20,
+                                fontStyle: 'italic'
+                            }
+                        },
+                        detail: {
+                            textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                                fontWeight: 'bolder'
+                            },
+                            formatter:'{{ credit_report_summary.0.score }}'
+                        },
+                        axisLine: {            // 坐标轴线
+                            lineStyle: {       // 属性lineStyle控制线条样式
+                                color: [[0.2, '#c23531'], [0.8, '#63869e'], [1, '#91c7ae']],
+                            }
+                        },
+                        data: [{value: {{ credit_report_summary.0.score }}, name: '信用分'}]
+                    }]
+                };
+            myChart.setOption(option);
+        </script>
+    </div>
+</section>
+
+<div class="row">
+    <div class="col-md-12" style="padding-left: 15px;">
+        <h3>1. 简版征信报告</h3>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4" style="padding-left: 70px;">
+            <h4>评估得分 ：{{ sub_report.simport_zhengxin_report.summary.score }}</h4>
+        </div>
+        <div class="col-sm-8 clearfix" style="padding-left: 20px;"><h4>战胜了{{ sub_report.simport_zhengxin_report.summary.score_quantile }}的人</h4> </div>
+    </div>
+    <div class="col-sm-4 clearfix"><h4>参考项</h4></div>
+    <div class="col-sm-8"><h4>值</h4></div>
+
+    
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">征信报告是否本人</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ simport_zhengxin.feature.simple_zhengxin_inequal_name }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">人民币信用卡数</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ simport_zhengxin.feature.simple_zhengxin_credit_card_cnt }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">房贷笔数</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ simport_zhengxin.feature.simple_zhengxin_house_loan_cnt }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">其他贷款笔数</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ simport_zhengxin.feature.simple_zhengxin_other_loan_cnt }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">是否有强制执行记录</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ simport_zhengxin.feature.simple_zhengxin_has_compulsory_execution_record }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">信用卡最早激活时间</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ simport_zhengxin.feature.simple_zhengxin_earliest_credit_card_release_date }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">当前信用卡逾期卡数</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ simport_zhengxin.feature.simple_zhengxin_current_overdue_credit_card_num }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">当前信用卡逾期金额</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ simport_zhengxin.feature.simple_zhengxin_credit_card_current_overdue_amount }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">近五年信用卡逾期超过90天次数</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ simport_zhengxin.feature.simple_zhengxin_credit_card_overdue_days_exceed_90_times }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">信用卡是否出现过呆账/冻结/止付状态</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ simport_zhengxin.feature.simple_zhengxin_credit_card_abnormal }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">当前房贷逾期金额</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ simport_zhengxin.feature.simple_zhengxin_house_loan_current_overdue_amount }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">近五年房贷逾期超过90天次数</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ simport_zhengxin.feature.simple_zhengxin_house_loan_overdue_days_exceed_90_times }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">房贷是否出现过呆账/冻结/止付状态</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ simport_zhengxin.feature.simple_zhengxin_house_loan_abnormal }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">当前其他贷款逾期金额</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ simport_zhengxin.feature.simple_zhengxin_other_loan_current_overdue_amount }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">近五年其他贷款逾期超过90天次数</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ simport_zhengxin.feature.simple_zhengxin_other_loan_overdue_days_exceed_90_times }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">其他贷款是否出现过呆账/冻结/止付状态</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ simport_zhengxin.feature.simple_zhengxin_other_loan_abnormal }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">命中的风控规则</div>
+        <div class="col-sm-8" style="font-size: 16px;">
+        {% for each in  simport_zhengxin.rule %}
+            <div class="col-md-9">{{ each }}</div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12" style="padding-left: 15px;">
+        <h3>2. 多头借贷报告</h3>
+    </div>
+    <div class="col-sm-4 clearfix"><h4>参考项</h4></div>
+    <div class="col-sm-8"><h4>值</h4></div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">最近180天申请贷款机构数</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ multi_loan.feature }}</div>
+    </div>
+    {% if multi_loan.rule %}
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">命中的风控规则</div>
+        <div class="col-sm-8" style="font-size: 16px;">
+        {% for each in  multi_loan.rule %}
+            <div class="col-md-9">{{ each }}</div>
+        {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<div class="row">
+    <div class="col-md-12" style="padding-left: 15px;">
+        <h3>3. 芝麻信用报告</h3>
+    </div>
+    <div class="row">
+        <div class="col-sm-4" style="padding-left: 70px;">
+            <h4>芝麻信用分 ：{{ zhima_info.score }}</h4>
+        </div>
+        <div class="col-sm-8">&nbsp;&nbsp;&nbsp;</div>
+        <div class="col-sm-8 clearfix" style="padding-left: 25px;">战胜了{{ zhima_info.score_quantile }}%的人</div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12" style="padding-left: 15px;">
+        <h3>4. 资产消费报告</h3>
+    </div>
+    <div class="row">
+        <div class="col-sm-4" style="padding-left: 70px;">
+            <h4>天启信用分 ：{{ asset_info.score }}</h4>
+        </div>
+        <div class="col-sm-8">&nbsp;&nbsp;&nbsp;</div>
+        <div class="col-sm-8 clearfix" style="padding-left: 25px;">战胜了{{ asset_info.score_quantile }}%的人</div>
+    </div>
+</div>
+
+{% if yys_info %}
+<div class="row">
+    <div class="col-md-12" style="padding-left: 15px;">
+        <h3>5. 运营商报告</h3>
+    </div>
+    <div class="row">
+        <div class="col-sm-4" style="padding-left: 70px;">
+            <h4>运营商评分 ：{{ yys_info.score }}</h4>
+        </div>
+        <div class="col-sm-8">&nbsp;&nbsp;&nbsp;</div>
+        <div class="col-sm-8 clearfix" style="padding-left: 25px;">战胜了{{ yys_info.score_quantile }}%的人</div>
+    </div>
+    <div class="col-sm-4 clearfix"><h4>参考项</h4></div>
+    <div class="col-sm-8"><h4>值</h4></div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">入网时间</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ yys_info.feature.yys_reg_time }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">姓名与运营商是否匹配</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ yys_info.feature.yys_inequal_name }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">当前账户余额</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ yys_info.feature.cur_account_amount }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">最近180天最长静默时间（天）</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ yys_info.feature.longest_no_call_time }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">最近180天通话次数</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ yys_info.feature.total_cnt_l180d }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">最近180天主叫次数</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ yys_info.feature.total_call_cnt_l180d }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">最近180天主叫时长（秒）</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ yys_info.feature.total_call_duration_l180d }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">最近180天夜间通话次数</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ yys_info.feature.total_night_cnt_l180d }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">最近180天夜间通话时长（秒）</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ yys_info.feature.total_night_duration_l180d }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">最近180天通话号码数（去重）</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ yys_info.feature.total_phone_no_cnt_l180d }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">最近180天通话次数超过10次的号码占比</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ yys_info.feature.cnt_more_than_10_ratio_l180d }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">最近180天与贷款类号码通话次数</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ yys_info.feature.telephone_call_phone_lable_loan_cnt }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">最近180天与催收类号码通话次数</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ yys_info.feature.telephone_call_phone_lable_cuishou_cnt }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">最近180天通话次数</div>
+        <div class="col-sm-8" style="font-size: 16px;">{{ yys_info.feature.total_cnt_l180d }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4" style="font-size: 16px;">命中的风控规则</div>
+        <div class="col-sm-8" style="font-size: 16px;">
+            {% for each in  simport_zhengxin.rule %}
+            <div class="col-md-9">{{ each }}</div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div style="height: 20px;"></div>
+
+</body>
+
+</html>

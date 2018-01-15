@@ -1,0 +1,44 @@
+{% load staticfiles %}
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<title>天启智创</title>
+	<link rel="stylesheet" href="{% static 'css/amazeui.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+<div class="am-g myapp-login">
+	<div class="myapp-login-logo-block">
+		<div class="myapp-login-logo">
+			<!--<i class="am-icon-jsfiddle"></i>-->
+            <img src="{% static 'img/tq.png' %}" />
+		</div>
+		<div class="myapp-login-logo-text" style="margin-top: 20px; color: #00c0ef">
+			<div class="myapp-login-logo-text">
+				<span>TianqiSmart</span>
+				<p><span>{{error}}</span></p>
+
+			</div>
+		</div>
+
+		<div class="login-font">
+
+		</div>
+		<div class="am-u-sm-10 login-am-center">
+			<form class="am-form" action="/login/" method="post">
+				<fieldset>
+					<div class="am-form-group">
+						<input type="text" name="username" id="doc-ipt-email-1" placeholder="输入电子邮件">
+					</div>
+
+					<div class="am-form-group">
+						<input type="password" name="password" id="doc-ipt-pwd-1" placeholder="输入密码">
+					</div>
+					<p><button type="submit" class="am-btn am-btn-default">登录</button></p>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>
