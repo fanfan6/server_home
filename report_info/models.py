@@ -21,4 +21,4 @@ class SearchHistory(models.Model):
     create_time = models.IntegerField()
 
     class Meta:
-        db_table = 'report_history'
+        db_table = 'search_history'

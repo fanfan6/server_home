@@ -86,9 +86,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'web_backstage',
-        'USER': 'root',
-        'PASSWORD': 'mysql',
-        'HOST': '127.0.0.1',
+        'USER': 'online_service',
+        'PASSWORD': 'tianqi@0906',
+        'HOST': '10.66.227.107',
         'PORT': '3306',
     }
 }
