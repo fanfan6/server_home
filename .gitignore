@@ -1,0 +1,4 @@
+*.pyc
+setting.py
+/report_info/migrations/*
+/login/migrations/*

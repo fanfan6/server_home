@@ -4,4 +4,4 @@ from django.contrib import admin
 
 from report_info import models
 
-admin.site.register(models.ReportRecord)
+admin.site.register(models.SearchHistory)

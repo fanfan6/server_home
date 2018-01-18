@@ -10,21 +10,6 @@ from __future__ import unicode_literals
 from django.db import models
 
 
-class ReportRecord(models.Model):
-    appid = models.IntegerField()
-    report_id = models.CharField(max_length=32, blank=True, null=True)
-    name = models.CharField(max_length=32, blank=True, null=True)
-    phone = models.CharField(max_length=64, blank=True, null=True)
-    idcard = models.CharField(max_length=64, blank=True, null=True)
-    report_type = models.CharField(max_length=16, blank=True, null=True)
-    report_datail = models.TextField(blank=True, null=True)
-    create_time = models.IntegerField()
-
-    class Meta:
-        managed = False
-        db_table = 'report_record'
-
-
 class SearchHistory(models.Model):
     appid = models.IntegerField(db_index=True)
     report_id = models.CharField(max_length=32, blank=True, null=True)
@@ -33,7 +18,7 @@ class SearchHistory(models.Model):
     idcard = models.CharField(max_length=64, blank=True, null=True)
     service = models.CharField(max_length=16)
     search_time = models.CharField(max_length=32)
-    create_time = models.IntegerField(max_length=10)
+    create_time = models.IntegerField()
 
     class Meta:
         db_table = 'report_history'
