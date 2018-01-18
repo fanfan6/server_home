@@ -2,45 +2,32 @@
 
 {%load staticfiles%}
 
-{% block nav %}
-    <li class="active">
-        <a href="/info/search">
-            <i class="fa fa-search-minus"></i> <span>查询服务</span>
-        </a>
-    </li>
-    <li class="active">
-        <a href="/info/service">
-            <i class="fa fa-search-minus"></i> <span>报告服务</span>
-        </a>
-    </li>
-{% endblock %}
-
 {% block content %}
     <div class="row">
         <div class="col-md-12">
             <section class="panel">
-                <header class="panel-heading">
-                    查询表单
+                <header class="panel-heading"  style="background-color: #4cae4c; color: #fff7e1">
+                    <h4>查询服务</h4>
                 </header>
                 <div class="panel-body">
                   <form class="form-inline" role="form" action="/info/search_info" method="get" accept-charset="UTF-8">
                       <div class="form-group">
                           <label class="sr-only" for="id">身份证号</label>
-                          <input type="text" class="form-control" id="id" placeholder="身份证号" name="idcard">
+                          <input type="text" class="form-control" id="id" placeholder="身份证号" name="idcard" value="{{ userinfo.idcard }}">
                       </div>
                       <div class="form-group">
                           <label class="sr-only" for="phone">手机号</label>
-                          <input type="text" class="form-control" id="phone" placeholder="手机号" name="phone">
+                          <input type="text" class="form-control" id="phone" placeholder="手机号" name="phone" value="{{ userinfo.phone }}">
                       </div>
                       <div class="form-group">
                           <label class="sr-only" for="name">姓名</label>
-                          <input type="text" class="form-control" id="name" placeholder="姓名" name="name">
+                          <input type="text" class="form-control" id="name" placeholder="姓名" name="name" value="{{ userinfo.name }}">
                       </div>
                       <div class="form-group">
                           <label class="sr-only" for="service">服务</label>
                           <select class="form-control" id="service" name="service">
-                              <option value="s02">S19</option>
-                              <option value="s03">S03</option>
+                              <option value="S19">S19</option>
+                              <option value="S03">S03</option>
                           </select>
                       </div>
 
@@ -51,12 +38,15 @@
             </section>
         </div>
     </div>
+{% if res %}
     <div class="row">
         <div class="col-xs-12">
             <div class="panel">
                 <header class="panel-heading">
                     查询结果
-                    <a class="btn btn-success btn-sm pull-right" href="/info/report/{{ res.report_id }}">查看报告</a>
+                    {% if res.report_id != '0' %}
+                    <a class="btn btn-success btn-sm pull-right" target="_blank" href="/info/report/{{ res.report_id }}">查看报告</a>
+                    {% endif %}
                 </header>
                 <div class="panel-body table-responsive">
                     <table class="table table-hover">
@@ -112,11 +102,11 @@
                             </tr>
                             <tr>
                                 <td>用户社交特征2</td>
-                                <td>{{ res.sub_features.social_level_1 }}</td>
+                                <td>{{ res.sub_features.social_level_2 }}</td>
                             </tr>
                             <tr>
                                 <td>用户社交特征3</td>
-                                <td>{{ res.sub_features.social_level_1 }}</td>
+                                <td>{{ res.sub_features.social_level_3 }}</td>
                             </tr>
                             <tr>
                                 <td>用户稳定性特征1</td>
@@ -124,11 +114,11 @@
                             </tr>
                             <tr>
                                 <td>用户稳定性特征2</td>
-                                <td>{{ res.sub_features.stable_level_1 }}</td>
+                                <td>{{ res.sub_features.stable_level_2 }}</td>
                             </tr>
                             <tr>
                                 <td>用户稳定性特征3</td>
-                                <td>{{ res.sub_features.stable_level_1 }}</td>
+                                <td>{{ res.sub_features.stable_level_3 }}</td>
                             </tr>
                             <tr>
                                 <td>用户欺诈特征1</td>
@@ -136,11 +126,11 @@
                             </tr>
                             <tr>
                                 <td>用户欺诈特征2</td>
-                                <td>{{ res.sub_features.fraud_level_1 }}</td>
+                                <td>{{ res.sub_features.fraud_level_2 }}</td>
                             </tr>
                             <tr>
                                 <td>用户欺诈特征3</td>
-                                <td>{{ res.sub_features.fraud_level_1 }}</td>
+                                <td>{{ res.sub_features.fraud_level_3 }}</td>
                             </tr>
                             <tr>
                                 <td>用户表现特征1</td>
@@ -148,11 +138,11 @@
                             </tr>
                             <tr>
                                 <td>用户表现特征2</td>
-                                <td>{{ res.sub_features.performance_level_1 }}</td>
+                                <td>{{ res.sub_features.performance_level_2 }}</td>
                             </tr>
                             <tr>
                                 <td>用户表现特征3</td>
-                                <td>{{ res.sub_features.performance_level_1 }}</td>
+                                <td>{{ res.sub_features.performance_level_3 }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -160,5 +150,6 @@
             </div>
         </div>
     </div>
+{% endif %}
 {% endblock %}
 

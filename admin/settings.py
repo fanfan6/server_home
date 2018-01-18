@@ -29,7 +29,7 @@ SESSION_SAVE_EVERY_REQUEST = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_AGE = 60*30
 
-ALLOWED_HOSTS = ['s3.tianqismart.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'admin.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'online',
-        'USER': 'root',
-        'PASSWORD': 'mysql',
-        'HOST': '127.0.0.1',
+        'NAME': 'web_backstage',
+        'USER': 'online_service',
+        'PASSWORD': 'tianqi@0906',
+        'HOST': '10.66.227.107',
         'PORT': '3306',
     }
 }
@@ -116,6 +116,7 @@ STATICFILES_DIRS = (
 )
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/home/fanxinyu/tianqi_server/static/admin'
 
 LOGIN_URL = '/login/'
 

@@ -5859,3 +5859,1124 @@ Traceback (most recent call last):
   File "/home/azure/tianqismart/wjnhadmin/report_info/views.py", line 181, in report
     'behavior_level_1': base_info['behavior_level_1'],
 KeyError: 'behavior_level_1'
+2018-01-15 17:58:54,171 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 232, in search_info
+    name = request.GET['name']
+  File "/usr/lib/python2.7/site-packages/django/utils/datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+MultiValueDictKeyError: "'name'"
+2018-01-15 18:29:19,618 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/report/100264151546889250962
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 23, in report
+    report_info = models.ReportRecord.objects.get(report_id=report_id)
+  File "/usr/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+DoesNotExist: ReportRecord matching query does not exist.
+2018-01-15 18:29:41,200 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/report/100264151546889250962
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 23, in report
+    report_info = models.ReportRecord.objects.get(report_id=report_id)
+  File "/usr/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+DoesNotExist: ReportRecord matching query does not exist.
+2018-01-15 18:33:45,353 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/report/100264151546889250962
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 23, in report
+    report_info = models.ReportRecord.objects.get(report_id=report_id)
+  File "/usr/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+DoesNotExist: ReportRecord matching query does not exist.
+2018-01-15 18:34:44,728 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/report/100264151546889250962
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 23, in report
+    report_info = models.ReportRecord.objects.get(report_id=report_id)
+  File "/usr/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+DoesNotExist: ReportRecord matching query does not exist.
+2018-01-15 18:41:51,688 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /admin
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 244, in _legacy_get_response
+    response = middleware_method(request)
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 62, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 80, in should_redirect_with_slash
+    not is_valid_path(request.path_info, urlconf) and
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 157, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 27, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 25, in <module>
+    {'document_root': settings.STATIC_ROOT }),
+NameError: name 'settings' is not defined
+2018-01-15 18:41:51,864 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /admin
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 244, in _legacy_get_response
+    response = middleware_method(request)
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 62, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 80, in should_redirect_with_slash
+    not is_valid_path(request.path_info, urlconf) and
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 157, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 27, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 25, in <module>
+    {'document_root': settings.STATIC_ROOT }),
+NameError: name 'settings' is not defined
+2018-01-15 18:42:54,914 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /admin
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 244, in _legacy_get_response
+    response = middleware_method(request)
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 62, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 80, in should_redirect_with_slash
+    not is_valid_path(request.path_info, urlconf) and
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 157, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 27, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 25, in <module>
+    {'document_root': settings.STATIC_ROOT }),
+NameError: name 'settings' is not defined
+2018-01-15 18:43:44,762 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /admin
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 244, in _legacy_get_response
+    response = middleware_method(request)
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 62, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 80, in should_redirect_with_slash
+    not is_valid_path(request.path_info, urlconf) and
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 157, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 27, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 26, in <module>
+    {'document_root': settings.STATIC_ROOT }),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 85, in url
+    raise TypeError('view must be a callable or a list/tuple in the case of include().')
+TypeError: view must be a callable or a list/tuple in the case of include().
+2018-01-15 18:44:14,252 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /admin
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 244, in _legacy_get_response
+    response = middleware_method(request)
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 62, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 80, in should_redirect_with_slash
+    not is_valid_path(request.path_info, urlconf) and
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 157, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 27, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 26, in <module>
+    {'document_root': settings.STATIC_ROOT }),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 85, in url
+    raise TypeError('view must be a callable or a list/tuple in the case of include().')
+TypeError: view must be a callable or a list/tuple in the case of include().
+2018-01-15 18:44:16,152 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /admin
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 244, in _legacy_get_response
+    response = middleware_method(request)
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 62, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 80, in should_redirect_with_slash
+    not is_valid_path(request.path_info, urlconf) and
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 157, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 27, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 26, in <module>
+    {'document_root': settings.STATIC_ROOT }),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 85, in url
+    raise TypeError('view must be a callable or a list/tuple in the case of include().')
+TypeError: view must be a callable or a list/tuple in the case of include().
+2018-01-15 19:10:31,862 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 25, in <module>
+    url(r'^report/', include('login.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./login/urls.py", line 9, in <module>
+    url(r'', login),
+NameError: name 'login' is not defined
+2018-01-15 19:10:32,192 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /report/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 25, in <module>
+    url(r'^report/', include('login.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./login/urls.py", line 9, in <module>
+    url(r'', login),
+NameError: name 'login' is not defined
+2018-01-15 19:10:36,497 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 25, in <module>
+    url(r'^report/', include('login.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./login/urls.py", line 9, in <module>
+    url(r'', login),
+NameError: name 'login' is not defined
+2018-01-15 19:10:36,791 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /report
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 244, in _legacy_get_response
+    response = middleware_method(request)
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 62, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 80, in should_redirect_with_slash
+    not is_valid_path(request.path_info, urlconf) and
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 157, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 27, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 25, in <module>
+    url(r'^report/', include('login.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./login/urls.py", line 9, in <module>
+    url(r'', login),
+NameError: name 'login' is not defined
+2018-01-15 19:10:41,765 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 25, in <module>
+    url(r'^report/', include('login.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./login/urls.py", line 9, in <module>
+    url(r'', login),
+NameError: name 'login' is not defined
+2018-01-15 19:11:21,505 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /report/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 25, in <module>
+    url(r'^report/', include('login.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./login/urls.py", line 9, in <module>
+    url(r'', login),
+NameError: name 'login' is not defined
+2018-01-15 19:47:05,769 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    if res['data']['is_black'] == 1:
+TypeError: string indices must be integers, not str
+2018-01-15 19:47:07,726 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    if res['data']['is_black'] == 1:
+TypeError: string indices must be integers, not str
+2018-01-15 19:48:29,941 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    if res['data']['is_black'] == '1':
+TypeError: string indices must be integers, not str
+2018-01-15 19:49:16,021 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    if res['data']['is_black'] == '1':
+TypeError: string indices must be integers, not str
+2018-01-15 19:49:17,833 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    if res['data']['is_black'] == '1':
+TypeError: string indices must be integers, not str
+2018-01-15 19:49:54,631 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    if int(res['data']['is_black']) == 1:
+TypeError: string indices must be integers, not str
+2018-01-15 19:49:56,770 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    if int(res['data']['is_black']) == 1:
+TypeError: string indices must be integers, not str
+2018-01-15 19:50:25,808 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    print res['data']['is_black']
+TypeError: string indices must be integers, not str
+2018-01-15 19:50:26,644 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    print res['data']['is_black']
+TypeError: string indices must be integers, not str
+2018-01-15 19:50:31,486 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    print res['data']['is_black']
+TypeError: string indices must be integers, not str
+2018-01-15 19:51:39,336 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    res = json.loads(res)
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 19:52:58,255 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    print res
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 19:53:46,924 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    print res
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 19:56:05,295 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    response = {}
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 19:57:30,587 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    response = {}
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 19:58:15,400 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    response = {}
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 19:58:18,363 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    response = {}
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 19:58:19,244 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    response = {}
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 19:58:21,360 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    response = {}
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 19:58:27,813 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    response = {}
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 19:58:29,073 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    response = {}
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 19:59:05,025 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    response = {}
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 19:59:05,840 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    response = {}
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 19:59:08,288 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    response = {}
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 20:00:52,430 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    response = {}
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 20:00:58,826 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    response = {}
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 20:01:46,314 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    response = {}
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 20:01:53,473 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 275, in search_info
+    response = {}
+  File "/usr/lib64/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-01-15 20:02:41,309 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/report/100273151599925189875
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 180, in report
+    if base_info['behavior_level_1']:
+KeyError: 'behavior_level_1'
+2018-01-15 20:02:41,531 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/report/100273151599925189875
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 180, in report
+    if base_info['behavior_level_1']:
+KeyError: 'behavior_level_1'
+2018-01-15 20:03:45,989 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/report/100273151599925189875
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 180, in report
+    #if base_info['behavior_level_1']:
+KeyError: 'behavior_level_1'
+2018-01-15 20:03:48,102 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/report/100273151599925189875
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 180, in report
+    #if base_info['behavior_level_1']:
+KeyError: 'behavior_level_1'
+2018-01-15 20:03:59,689 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/report/100273151599925189875
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 180, in report
+    #if base_info['behavior_level_1']:
+KeyError: 'behavior_level_1'
+2018-01-15 20:04:34,691 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/report/100273151599925189875
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 180, in report
+    sub_info = {
+KeyError: 'behavior_level_1'
+2018-01-15 20:04:47,891 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/report/100273151599925189875
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 180, in report
+    sub_info = {
+KeyError: 'behavior_level_1'
+2018-01-15 20:04:48,714 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/report/100273151599925189875
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 180, in report
+    sub_info = {
+KeyError: 'behavior_level_1'
+2018-01-15 20:04:57,206 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/report/100273151599925189875
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 180, in report
+    sub_info = {
+KeyError: 'behavior_level_1'
+2018-01-15 20:06:59,363 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/report/100273151599925189875
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 180, in report
+    sub_info = {
+KeyError: 'behavior_level_1'
+2018-01-15 20:07:55,564 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/report/100273151599925189875
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 180, in report
+    print 'dddd'
+KeyError: 'behavior_level_1'
+2018-01-16 09:59:39,591 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 279, in search_info
+    if res['data']['is_black'] == 1:
+TypeError: string indices must be integers, not str
+2018-01-16 10:04:36,552 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 279, in search_info
+    if res['data']['is_black'] == 1:
+TypeError: string indices must be integers, not str
+2018-01-16 10:05:13,587 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 280, in search_info
+    if res['data']['is_black'] == 1:
+TypeError: string indices must be integers, not str
+2018-01-16 10:06:06,365 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 280, in search_info
+    if res['data']['is_black'] == 1:
+TypeError: string indices must be integers, not str
+2018-01-16 10:15:35,816 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/report/100273151606893215296
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 23, in report
+    report_info = models.ReportRecord.objects.get(report_id=report_id)
+  File "/usr/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+DoesNotExist: ReportRecord matching query does not exist.
+2018-01-16 10:22:22,646 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/search_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 283, in search_info
+    if res_data['is_black'] == 1:
+TypeError: 'NoneType' object has no attribute '__getitem__'
+2018-01-16 10:25:03,333 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/report/100273151606949300644
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 23, in report
+    report_info = models.ReportRecord.objects.get(report_id=report_id)
+  File "/usr/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+DoesNotExist: ReportRecord matching query does not exist.

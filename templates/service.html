@@ -2,56 +2,45 @@
 
 {%load staticfiles%}
 
-{% block nav %}
-    <li class="active">
-        <a href="/info/search">
-            <i class="fa fa-search-minus"></i> <span>查询服务</span>
-        </a>
-    </li>
-    <li class="active">
-        <a href="/info/service">
-            <i class="fa fa-search-minus"></i> <span>报告服务</span>
-        </a>
-    </li>
-{% endblock %}
 
 {% block content %}
     <div class="row">
         <div class="col-md-12">
             <section class="panel">
-                <header class="panel-heading">
-                    查询表单
+                <header class="panel-heading" style="background-color: #4cae4c; color: #fff7e1">
+                    <h4>报告服务</h4>
                 </header>
                 <div class="panel-body">
-                  <form class="form-inline" role="form">
+                  <form class="form-inline" role="form" action="/info/service_info" method="get">
                       <div class="form-group">
                           <label class="sr-only" for="id">身份证号</label>
-                          <input type="text" class="form-control" id="id" placeholder="身份证号">
+                          <input type="text" class="form-control" id="id" placeholder="身份证号" name="idcard" value="{{ userinfo.idcard }}">
                       </div>
                       <div class="form-group">
                           <label class="sr-only" for="phone">手机号</label>
-                          <input type="text" class="form-control" id="phone" placeholder="手机号">
+                          <input type="text" class="form-control" id="phone" placeholder="手机号" name="phone" value="{{ userinfo.phone }}">
                       </div>
                       <div class="form-group">
                           <label class="sr-only" for="name">姓名</label>
-                          <input type="text" class="form-control" id="name" placeholder="姓名">
+                          <input type="text" class="form-control" id="name" placeholder="姓名" name="name" value="{{ userinfo.name }}">
                       </div>
                       <div class="form-group">
-                          <label class="sr-only" for="service">服务</label>
-                          <select class="form-control" id="service" >
-                              <option>S02</option>
-                              <option>S03</option>
+                          <label class="sr-only" for="service">报告类型</label>
+                          <select class="form-control" id="service" name="service">
+                              <option value=""></option>
+                              <option value="201">决策引擎类</option>
+                              <option value="202">数据查询类</option>
                           </select>
                       </div>
 
-                      <button type="submit" class="btn btn-success">搜索</button>
+                      <input type="submit" class="btn btn-success" value="搜索" >
                   </form>
 
                 </div>
             </section>
         </div>
     </div>
-
+{% if res %}
     <div class="row">
         <div class="col-xs-12">
             <div class="panel">
@@ -62,21 +51,25 @@
                     <table class="table table-hover">
                         <tr>
                             <th>姓名</th>
-                            <th>身份证号</th>
-                            <th>手机号</th>
-                            <th>报告</th>
+                            <th>报告ID</th>
+                            <th>报告类型</th>
+                            <th>生成时间</th>
+                            <th>报告详情</th>
                         </tr>
+                        {% for each in res %}
                         <tr>
-                            <td>凡凡</td>
-                            <td>41×××××</td>
-                            <td>137××××××</td>
+                            <td>{{ each.name }}</td>
+                            <td>{{ each.report_id }}</td>
+                            <td>{{ each.service }}</td>
+                            <td>{{ each.time }}</td>
                             <td id="tree"><a href="/info/report/100264151546889250962">查看报告</a></td>
                         </tr>
-
+                        {% endfor %}
                     </table>
                 </div>
             </div>
         </div>
     </div>
+{% endif %}
 {% endblock %}
 

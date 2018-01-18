@@ -23,3 +23,17 @@ class ReportRecord(models.Model):
     class Meta:
         managed = False
         db_table = 'report_record'
+
+
+class SearchHistory(models.Model):
+    appid = models.IntegerField(db_index=True)
+    report_id = models.CharField(max_length=32, blank=True, null=True)
+    name = models.CharField(max_length=32, blank=True, null=True)
+    phone = models.CharField(max_length=64, blank=True, null=True)
+    idcard = models.CharField(max_length=64, blank=True, null=True)
+    service = models.CharField(max_length=16)
+    search_time = models.CharField(max_length=32)
+    create_time = models.IntegerField(max_length=10)
+
+    class Meta:
+        db_table = 'report_history'
