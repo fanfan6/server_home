@@ -27,7 +27,7 @@
                       <div class="form-group">
                           <label class="sr-only" for="service">报告类型</label>
                           <select class="form-control" id="service" name="service">
-                              <option value=""></option>
+                              <option value="">所有类别</option>
                               <option value="201">决策引擎类</option>
                               <option value="202">数据查询类</option>
                           </select>
@@ -60,9 +60,10 @@
                         <tr>
                             <td>{{ each.name }}</td>
                             <td>{{ each.report_id }}</td>
+                            <!--<td>xxxxxxxxxxx</td>-->
                             <td>{{ each.service }}</td>
                             <td>{{ each.time }}</td>
-                            <td id="tree"><a href="/info/report/100264151546889250962">查看报告</a></td>
+                            <td id="tree"><a target="_blank" href="/info/report/{{ each.report_id }}">查看报告</a></td>
                         </tr>
                         {% endfor %}
                     </table>

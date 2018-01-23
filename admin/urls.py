@@ -22,5 +22,6 @@ urlpatterns = [
 #    url(r'^/report/', include('login.urls')),
     url(r'^admin', admin.site.urls),
     url(r'^info/', include('report_info.urls')),
+    url(r'^count/', include('count.urls')),
     url(r'', include('login.urls')),
 ]

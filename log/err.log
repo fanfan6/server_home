@@ -6980,3 +6980,1525 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/site-packages/django/db/models/query.py", line 385, in get
     self.model._meta.object_name
 DoesNotExist: ReportRecord matching query does not exist.
+2018-01-18 17:06:36,005 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "./login/views.py", line 52, in logout
+    auth_logout(request)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 148, in logout
+    request.session.flush()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 302, in flush
+    self.delete()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 103, in delete
+    self.model.objects.get(session_key=session_key).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 958, in delete
+    return collector.delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 302, in delete
+    count = query.delete_batch(pk_list, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 46, in delete_batch
+    num_deleted += self.do_query(self.get_meta().db_table, self.where, using=using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 28, in do_query
+    cursor = self.get_compiler(using).execute_sql(CURSOR)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1142, "DELETE command denied to user 'online_service'@'10.163.36.8' for table 'django_session'")
+2018-01-18 17:12:25,246 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "./login/views.py", line 52, in logout
+    auth_logout(request)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 148, in logout
+    request.session.flush()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 302, in flush
+    self.delete()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 103, in delete
+    self.model.objects.get(session_key=session_key).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 958, in delete
+    return collector.delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 302, in delete
+    count = query.delete_batch(pk_list, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 46, in delete_batch
+    num_deleted += self.do_query(self.get_meta().db_table, self.where, using=using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 28, in do_query
+    cursor = self.get_compiler(using).execute_sql(CURSOR)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1142, "DELETE command denied to user 'online_service'@'10.163.36.8' for table 'django_session'")
+2018-01-18 18:42:36,611 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /info/service_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./report_info/views.py", line 28, in inner
+    return func(request, *args, **kwargs)
+  File "./report_info/views.py", line 366, in service_info
+    for info in res_data:
+TypeError: 'NoneType' object is not iterable
+2018-01-22 10:48:47,655 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 25, in count_info
+    for i in data:
+TypeError: 'NoneType' object is not iterable
+2018-01-22 10:59:40,750 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 21, in count_info
+    print dict(res)
+ValueError: dictionary update sequence element #0 has length 6; 2 is required
+2018-01-22 12:00:25,099 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 16, in count_info
+    start_time = request.GET['start_time'].replace('-', '')
+  File "/usr/lib/python2.7/site-packages/django/utils/datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+MultiValueDictKeyError: "'start_time'"
+2018-01-22 12:05:18,894 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 244, in _legacy_get_response
+    response = middleware_method(request)
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 62, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 80, in should_redirect_with_slash
+    not is_valid_path(request.path_info, urlconf) and
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 157, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 27, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 25, in <module>
+    url(r'^count/', include('count.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./count/urls.py", line 4, in <module>
+    from count import views
+  File "./count/views.py", line 21
+    print res.query.group_by = ['date']
+                             ^
+SyntaxError: invalid syntax
+2018-01-22 12:05:19,269 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 244, in _legacy_get_response
+    response = middleware_method(request)
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 62, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 80, in should_redirect_with_slash
+    not is_valid_path(request.path_info, urlconf) and
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 157, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 27, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 25, in <module>
+    url(r'^count/', include('count.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./count/urls.py", line 4, in <module>
+    from count import views
+  File "./count/views.py", line 21
+    print res.query.group_by = ['date']
+                             ^
+SyntaxError: invalid syntax
+2018-01-22 12:05:34,214 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 244, in _legacy_get_response
+    response = middleware_method(request)
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 62, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 80, in should_redirect_with_slash
+    not is_valid_path(request.path_info, urlconf) and
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 157, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 27, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 25, in <module>
+    url(r'^count/', include('count.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./count/urls.py", line 4, in <module>
+    from count import views
+  File "./count/views.py", line 21
+    print res.query.group_by = ['date']
+                             ^
+SyntaxError: invalid syntax
+2018-01-22 12:05:34,561 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 244, in _legacy_get_response
+    response = middleware_method(request)
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 62, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 80, in should_redirect_with_slash
+    not is_valid_path(request.path_info, urlconf) and
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 157, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 27, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 25, in <module>
+    url(r'^count/', include('count.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./count/urls.py", line 4, in <module>
+    from count import views
+  File "./count/views.py", line 21
+    print res.query.group_by = ['date']
+                             ^
+SyntaxError: invalid syntax
+2018-01-22 12:51:31,211 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 45, in count_info
+    print sorted(response.items(), key=lambda d: d[0])
+AttributeError: 'list' object has no attribute 'items'
+2018-01-22 13:47:49,210 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 244, in _legacy_get_response
+    response = middleware_method(request)
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 62, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 80, in should_redirect_with_slash
+    not is_valid_path(request.path_info, urlconf) and
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 157, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 27, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 25, in <module>
+    url(r'^count/', include('count.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./count/urls.py", line 4, in <module>
+    from count import views
+  File "./count/views.py", line 39
+    if i.get('service') == j
+                           ^
+SyntaxError: invalid syntax
+2018-01-22 13:47:49,597 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 244, in _legacy_get_response
+    response = middleware_method(request)
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 62, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 80, in should_redirect_with_slash
+    not is_valid_path(request.path_info, urlconf) and
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 157, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/lib/python2.7/site-packages/django/urls/base.py", line 27, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 267, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 310, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/lib/python2.7/site-packages/django/urls/resolvers.py", line 303, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./admin/urls.py", line 25, in <module>
+    url(r'^count/', include('count.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib64/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "./count/urls.py", line 4, in <module>
+    from count import views
+  File "./count/views.py", line 39
+    if i.get('service') == j
+                           ^
+SyntaxError: invalid syntax
+2018-01-22 15:09:21,855 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 37, in count_info
+    return render(request, 'counts.html', {'res': response, 'service': service})
+  File "/usr/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/usr/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: default requires 2 arguments, 1 provided
+2018-01-22 15:14:17,900 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 37, in count_info
+    return render(request, 'counts.html', {'res': response, 'service': service})
+  File "/usr/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/usr/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: default requires 2 arguments, 1 provided
+2018-01-22 15:14:54,170 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 37, in count_info
+    return render(request, 'counts.html', {'res': response, 'service': service})
+  File "/usr/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/usr/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: default requires 2 arguments, 1 provided
+2018-01-22 15:16:11,444 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 37, in count_info
+    return render(request, 'counts.html', {'res': response, 'service': service})
+  File "/usr/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/usr/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: default requires 2 arguments, 1 provided
+2018-01-22 15:16:13,135 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 37, in count_info
+    return render(request, 'counts.html', {'res': response, 'service': service})
+  File "/usr/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/usr/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/usr/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: default requires 2 arguments, 1 provided
+2018-01-22 15:25:09,292 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 33, in count_info
+    service_res[service_res.index(i.get('service'))] = i.get('clicks')
+ValueError: u'S19' is not in list
+2018-01-22 15:28:12,232 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 34, in count_info
+    response.append({'date': str(num)[:4] + '-' + str(num)[4:6] + '-' + str(num)[6:], 'service': service_res, 'sum': sum(service_res)})
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+2018-01-22 15:30:51,065 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 34, in count_info
+    response.append({'date': str(num)[:4] + '-' + str(num)[4:6] + '-' + str(num)[6:], 'service': service_res, 'sum': sum(map(int, service_res))})
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+2018-01-22 15:31:03,171 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 34, in count_info
+    response.append({'date': str(num)[:4] + '-' + str(num)[4:6] + '-' + str(num)[6:], 'service': service_res, 'sum': sum(map(int, service_res))})
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+2018-01-22 16:02:57,508 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 26, in count_info
+    for num in range(int(end_time), int(start_time) - 1, -1):
+ValueError: invalid literal for int() with base 10: '20180102 />                                    <span class='
+2018-01-22 16:34:40,033 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 29, in count_info
+    datestart = datetime.datetime.strptime(start_time, '%Y-%m-%d')
+  File "/usr/lib64/python2.7/_strptime.py", line 325, in _strptime
+    (data_string, format))
+ValueError: time data '20170101' does not match format '%Y-%m-%d'
+2018-01-22 18:23:05,883 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: unbound method count_info() must be called with Count instance as first argument (got WSGIRequest instance instead)
+2018-01-22 18:23:28,120 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/search
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: unbound method counts() must be called with Count instance as first argument (got WSGIRequest instance instead)
+2018-01-22 18:57:22,325 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/download
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 71, in count_download
+    data = public_info(request)
+  File "./count/views.py", line 20, in public_info
+    start_time = request.GET['start_time'].replace('-', '')
+  File "/usr/lib/python2.7/site-packages/django/utils/datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+MultiValueDictKeyError: "'start_time'"
+2018-01-22 18:57:49,132 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/download
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 71, in count_download
+    data = public_info(request)
+  File "./count/views.py", line 20, in public_info
+    start_time = request.GET['start_time'].replace('-', '')
+  File "/usr/lib/python2.7/site-packages/django/utils/datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+MultiValueDictKeyError: "'start_time'"
+2018-01-22 19:19:17,445 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 61, in count_info
+    data = public_info(request)
+  File "./count/views.py", line 36, in public_info
+    datestart = datetime.datetime.strptime(start_time, '%Y%m%d')
+  File "/usr/lib64/python2.7/_strptime.py", line 325, in _strptime
+    (data_string, format))
+ValueError: time data '' does not match format '%Y%m%d'
+2018-01-22 19:19:28,814 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 61, in count_info
+    data = public_info(request)
+  File "./count/views.py", line 36, in public_info
+    datestart = datetime.datetime.strptime(start_time, '%Y%m%d')
+  File "/usr/lib64/python2.7/_strptime.py", line 325, in _strptime
+    (data_string, format))
+ValueError: time data '' does not match format '%Y%m%d'
+2018-01-22 19:22:15,450 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /count/count_info
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./count/views.py", line 61, in count_info
+    data = public_info(request)
+  File "./count/views.py", line 36, in public_info
+    datestart = datetime.datetime.strptime(start_time, '%Y%m%d')
+  File "/usr/lib64/python2.7/_strptime.py", line 325, in _strptime
+    (data_string, format))
+ValueError: time data '' does not match format '%Y%m%d'
+2018-01-23 10:33:11,245 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "./login/views.py", line 28, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "./login/views.py", line 39, in post
+    login(request, user)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 107, in login
+    request.session.flush()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 302, in flush
+    self.delete()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 103, in delete
+    self.model.objects.get(session_key=session_key).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 958, in delete
+    return collector.delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 302, in delete
+    count = query.delete_batch(pk_list, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 46, in delete_batch
+    num_deleted += self.do_query(self.get_meta().db_table, self.where, using=using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 28, in do_query
+    cursor = self.get_compiler(using).execute_sql(CURSOR)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1142, "DELETE command denied to user 'online_service'@'10.163.36.8' for table 'django_session'")
+2018-01-23 10:33:45,369 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "./login/views.py", line 28, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "./login/views.py", line 39, in post
+    login(request, user)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 107, in login
+    request.session.flush()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 302, in flush
+    self.delete()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 103, in delete
+    self.model.objects.get(session_key=session_key).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 958, in delete
+    return collector.delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 302, in delete
+    count = query.delete_batch(pk_list, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 46, in delete_batch
+    num_deleted += self.do_query(self.get_meta().db_table, self.where, using=using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 28, in do_query
+    cursor = self.get_compiler(using).execute_sql(CURSOR)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1142, "DELETE command denied to user 'online_service'@'10.163.36.8' for table 'django_session'")
+2018-01-23 10:35:41,194 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "./login/views.py", line 28, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "./login/views.py", line 39, in post
+    login(request, user)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 107, in login
+    request.session.flush()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 302, in flush
+    self.delete()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 103, in delete
+    self.model.objects.get(session_key=session_key).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 958, in delete
+    return collector.delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 302, in delete
+    count = query.delete_batch(pk_list, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 46, in delete_batch
+    num_deleted += self.do_query(self.get_meta().db_table, self.where, using=using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 28, in do_query
+    cursor = self.get_compiler(using).execute_sql(CURSOR)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1142, "DELETE command denied to user 'online_service'@'10.163.36.8' for table 'django_session'")
+2018-01-23 10:37:14,618 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "./login/views.py", line 28, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "./login/views.py", line 39, in post
+    login(request, user)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 107, in login
+    request.session.flush()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 302, in flush
+    self.delete()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 103, in delete
+    self.model.objects.get(session_key=session_key).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 958, in delete
+    return collector.delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 302, in delete
+    count = query.delete_batch(pk_list, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 46, in delete_batch
+    num_deleted += self.do_query(self.get_meta().db_table, self.where, using=using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 28, in do_query
+    cursor = self.get_compiler(using).execute_sql(CURSOR)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1142, "DELETE command denied to user 'online_service'@'10.163.36.8' for table 'django_session'")
+2018-01-23 10:37:23,638 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "./login/views.py", line 28, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "./login/views.py", line 39, in post
+    login(request, user)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 107, in login
+    request.session.flush()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 302, in flush
+    self.delete()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 103, in delete
+    self.model.objects.get(session_key=session_key).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 958, in delete
+    return collector.delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 302, in delete
+    count = query.delete_batch(pk_list, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 46, in delete_batch
+    num_deleted += self.do_query(self.get_meta().db_table, self.where, using=using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 28, in do_query
+    cursor = self.get_compiler(using).execute_sql(CURSOR)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1142, "DELETE command denied to user 'online_service'@'10.163.36.8' for table 'django_session'")
+2018-01-23 10:40:33,237 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "./login/views.py", line 28, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "./login/views.py", line 39, in post
+    login(request, user)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 107, in login
+    request.session.flush()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 302, in flush
+    self.delete()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 103, in delete
+    self.model.objects.get(session_key=session_key).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 958, in delete
+    return collector.delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 302, in delete
+    count = query.delete_batch(pk_list, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 46, in delete_batch
+    num_deleted += self.do_query(self.get_meta().db_table, self.where, using=using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 28, in do_query
+    cursor = self.get_compiler(using).execute_sql(CURSOR)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1142, "DELETE command denied to user 'online_service'@'10.163.36.8' for table 'django_session'")
+2018-01-23 10:41:28,338 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "./login/views.py", line 28, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "./login/views.py", line 41, in post
+    login(request, user)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 107, in login
+    request.session.flush()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 302, in flush
+    self.delete()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 103, in delete
+    self.model.objects.get(session_key=session_key).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 958, in delete
+    return collector.delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 302, in delete
+    count = query.delete_batch(pk_list, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 46, in delete_batch
+    num_deleted += self.do_query(self.get_meta().db_table, self.where, using=using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 28, in do_query
+    cursor = self.get_compiler(using).execute_sql(CURSOR)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1142, "DELETE command denied to user 'online_service'@'10.163.36.8' for table 'django_session'")
+2018-01-23 10:45:07,345 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "./login/views.py", line 56, in logout
+    auth_logout(request)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 148, in logout
+    request.session.flush()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 302, in flush
+    self.delete()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 103, in delete
+    self.model.objects.get(session_key=session_key).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 958, in delete
+    return collector.delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 302, in delete
+    count = query.delete_batch(pk_list, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 46, in delete_batch
+    num_deleted += self.do_query(self.get_meta().db_table, self.where, using=using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 28, in do_query
+    cursor = self.get_compiler(using).execute_sql(CURSOR)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1142, "DELETE command denied to user 'online_service'@'10.163.36.8' for table 'django_session'")
+2018-01-23 10:48:59,157 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "./login/views.py", line 56, in logout
+    # auth_logout(request)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 148, in logout
+    request.session.flush()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 302, in flush
+    self.delete()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 103, in delete
+    self.model.objects.get(session_key=session_key).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 958, in delete
+    return collector.delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 302, in delete
+    count = query.delete_batch(pk_list, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 46, in delete_batch
+    num_deleted += self.do_query(self.get_meta().db_table, self.where, using=using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 28, in do_query
+    cursor = self.get_compiler(using).execute_sql(CURSOR)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1142, "DELETE command denied to user 'online_service'@'10.163.36.8' for table 'django_session'")
+2018-01-23 10:49:00,616 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "./login/views.py", line 56, in logout
+    # auth_logout(request)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 148, in logout
+    request.session.flush()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 302, in flush
+    self.delete()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 103, in delete
+    self.model.objects.get(session_key=session_key).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 958, in delete
+    return collector.delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 302, in delete
+    count = query.delete_batch(pk_list, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 46, in delete_batch
+    num_deleted += self.do_query(self.get_meta().db_table, self.where, using=using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 28, in do_query
+    cursor = self.get_compiler(using).execute_sql(CURSOR)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1142, "DELETE command denied to user 'online_service'@'10.163.36.8' for table 'django_session'")
+2018-01-23 10:49:26,898 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "./login/views.py", line 28, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "./login/views.py", line 41, in post
+    login(request, user)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 107, in login
+    request.session.flush()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 302, in flush
+    self.delete()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 103, in delete
+    self.model.objects.get(session_key=session_key).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 958, in delete
+    return collector.delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 302, in delete
+    count = query.delete_batch(pk_list, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 46, in delete_batch
+    num_deleted += self.do_query(self.get_meta().db_table, self.where, using=using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 28, in do_query
+    cursor = self.get_compiler(using).execute_sql(CURSOR)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1142, "DELETE command denied to user 'online_service'@'10.163.36.8' for table 'django_session'")
+2018-01-23 10:49:36,551 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "./login/views.py", line 28, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "./login/views.py", line 41, in post
+    login(request, user)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 107, in login
+    request.session.flush()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 302, in flush
+    self.delete()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 103, in delete
+    self.model.objects.get(session_key=session_key).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 958, in delete
+    return collector.delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 302, in delete
+    count = query.delete_batch(pk_list, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 46, in delete_batch
+    num_deleted += self.do_query(self.get_meta().db_table, self.where, using=using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 28, in do_query
+    cursor = self.get_compiler(using).execute_sql(CURSOR)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1142, "DELETE command denied to user 'online_service'@'10.163.36.8' for table 'django_session'")
+2018-01-23 10:52:04,089 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "./login/views.py", line 28, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "./login/views.py", line 41, in post
+    login(request, user)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 107, in login
+    request.session.flush()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 302, in flush
+    self.delete()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 103, in delete
+    self.model.objects.get(session_key=session_key).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 958, in delete
+    return collector.delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 302, in delete
+    count = query.delete_batch(pk_list, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 46, in delete_batch
+    num_deleted += self.do_query(self.get_meta().db_table, self.where, using=using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 28, in do_query
+    cursor = self.get_compiler(using).execute_sql(CURSOR)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1142, "DELETE command denied to user 'online_service'@'10.163.36.8' for table 'django_session'")
+2018-01-23 10:56:05,413 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "./login/views.py", line 28, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "./login/views.py", line 41, in post
+    login(request, user)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/__init__.py", line 107, in login
+    request.session.flush()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 302, in flush
+    self.delete()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 103, in delete
+    self.model.objects.get(session_key=session_key).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 958, in delete
+    return collector.delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 302, in delete
+    count = query.delete_batch(pk_list, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 46, in delete_batch
+    num_deleted += self.do_query(self.get_meta().db_table, self.where, using=using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 28, in do_query
+    cursor = self.get_compiler(using).execute_sql(CURSOR)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1142, "DELETE command denied to user 'online_service'@'10.163.36.8' for table 'django_session'")
+2018-01-23 10:56:18,034 [CASdjango.request] [uWSGIWorker1Core0] ERROR [/usr/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "./login/views.py", line 56, in logout
+    request.session.flush()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/base.py", line 302, in flush
+    self.delete()
+  File "/usr/lib/python2.7/site-packages/django/contrib/sessions/backends/db.py", line 103, in delete
+    self.model.objects.get(session_key=session_key).delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/base.py", line 958, in delete
+    return collector.delete()
+  File "/usr/lib/python2.7/site-packages/django/db/models/deletion.py", line 302, in delete
+    count = query.delete_batch(pk_list, self.using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 46, in delete_batch
+    num_deleted += self.do_query(self.get_meta().db_table, self.where, using=using)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/subqueries.py", line 28, in do_query
+    cursor = self.get_compiler(using).execute_sql(CURSOR)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python2.7/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1142, "DELETE command denied to user 'online_service'@'10.163.36.8' for table 'django_session'")

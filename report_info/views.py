@@ -11,7 +11,8 @@ import collections
 import hashlib
 
 from report_info import models
-from django.contrib.auth.decorators import login_required
+from login.models import Pro
+from django.contrib.auth.models import User
 
 import sys
 
@@ -32,6 +33,7 @@ def auth(func):
 def report(request, nid):
     user_info = {}
     report_id = nid
+    print report_id
     data = {
         'appid': 100256,
         'idcard': '',
@@ -44,9 +46,9 @@ def report(request, nid):
     try:
         add_sign(data, 'a1a8fd0bef522844')
         res = post('http://10.141.148.247/api/get_data', data).read()
-        report_info = json.loads(res['data'])
-        report_type = report_info.report_type
-        report_datail = json.loads(report_info.report_datail)
+        report_info = json.loads(res)['data'][0]
+        report_type = report_info.get('report_type')
+        report_datail = json.loads(report_info.get('report_datail'))
 
         base_info = report_datail.get('base_info')
         if base_info['gender'] == 0:
@@ -79,6 +81,7 @@ def report(request, nid):
         simport_zhengxin = {'feature': {}}
 
         if int(report_type) == 201:
+            print '201 决策引擎类'
             # 获取报告子模块
             simport_zhengxin_report = sub_report.get('simport_zhengxin_report')
             multi_loan_report = sub_report.get('multi_loan_report')
@@ -202,7 +205,7 @@ def report(request, nid):
                                                       'report_type': report_type, 'credit_report_summary': credit_report_summary,
                                                       'zhima_info': zhima_info, 'asset_info': asset_info, 'yys_info': yys_info})
         elif int(report_type) == 202:
-            print 'dddd'
+            print '202'
             sub_info = {
                 'behavior_level_1': base_info.get('behavior_level_1', ''),
                 'behavior_level_2': base_info.get('behavior_level_2', ''),
@@ -259,14 +262,18 @@ def search(request):
 def search_info(request):
     try:
         user_info = {}
+        username = request.COOKIES.get('username')
+        user_id = User.objects.get(username=username).id
+        appid = Pro.objects.get(user_id=int(user_id)).app_id
         request.encoding = 'utf-8'
         user_info['name'] = request.GET['name']
         user_info['idcard'] = request.GET['idcard']
         user_info['phone'] = request.GET['phone']
         user_info['service'] = request.GET['service']
+        # user_info['appid'] = int(appid)
         user_info['appid'] = 100256
         data = {
-            'appid': 100256,
+            'appid': user_info['appid'],
             'idcard': user_info['idcard'],
             'phone': user_info['phone'],
             'name': user_info['name'],
@@ -290,15 +297,22 @@ def search_info(request):
                 response['model_score'] = res_data.get('model_score', '')
                 response['credit_score'] = res_data.get('credit_score', '')
                 response['sub_features'] = res_data.get('sub_features', '')
-                report_id = response.get('report_id', '')
+                report_id = res_data.get('report_id', '')
                 # report_id = '100273151599924881650'
-                add_sign(data, 'a1a8fd0bef522844')
-                res = post('http://10.141.148.247/api/get_data', data).read()
-                data = json.loads(res['data'])
-                if data:
-                    response['report_id'] = data['report_id']
+                data2 = {
+                    'appid': user_info['appid'],
+                    'service': 'S23',
+                    'report_id': report_id,
+                    'function_id': 2,
+                }
+                add_sign(data2, 'a1a8fd0bef522844')
+                res = post('http://10.141.148.247/api/get_data', data2).read()
+                data3 = json.loads(res)['data']
+                if data3:
+                    response['report_id'] = report_id
                 else:
                     response['report_id'] = '0'
+                user_info['report_id'] = report_id
                 user_info['create_time'] = int(time.time())
                 user_info['search_time'] = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
                 # 查询历史写入数据库
@@ -324,12 +338,13 @@ def service_info(request):
     user_info['phone'] = request.GET['phone']
     user_info['service'] = request.GET['service']
     user_info['appid'] = 100256
+    print user_info['service']
     data = {
         'appid': 100256,
         'idcard': user_info['idcard'],
         'phone': user_info['phone'],
         'name': user_info['name'],
-        'service': user_info['service'],
+        'service': 'S23',
         'report_id': '',
         'function_id': 3,
     }
@@ -348,21 +363,39 @@ def service_info(request):
         if res:
             res_new = json.loads(res)
             res_data = res_new.get('data')
+            if not res_data:
+                return render(request, 'service.html', {'res': {}})
             res = []
             for info in res_data:
-                if int(info.get('report_type')) == 201:
-                    service = u'决策引擎类'
-                elif int(info.get('report_type')) == 202:
-                    service = u'数据查询类'
-                res2 = json.loads(info.get('report_datail'))
-                res.append({
-                    'name': res2.get('base_info').get('name', ''),
-                    'idcard': res2.get('base_info').get('idcard'),
-                    'phone': res2.get('base_info').get('phone'),
-                    'service': service,
-                    'time': time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(info.get('create_time'))),
-                    'report_id': info.get('report_id'),
-                    })
+                if not user_info['service']:
+                    if int(info.get('report_type')) == 201:
+                        service = u'决策引擎类'
+                    elif int(info.get('report_type')) == 202:
+                        service = u'数据查询类'
+                    res2 = json.loads(info.get('report_datail'))
+                    res.append({
+                        'name': res2.get('base_info').get('name', ''),
+                        'idcard': res2.get('base_info').get('idcard'),
+                        'phone': res2.get('base_info').get('phone'),
+                        'service': service,
+                        'time': time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(info.get('create_time'))),
+                        'report_id': info.get('report_id'),
+                        })
+                else:
+                    if int(user_info['service']) == int(info.get('report_type')):
+                        if int(info.get('report_type')) == 201:
+                            service = u'决策引擎类'
+                        elif int(info.get('report_type')) == 202:
+                            service = u'数据查询类'
+                        res2 = json.loads(info.get('report_datail'))
+                        res.append({
+                            'name': res2.get('base_info').get('name', ''),
+                            'idcard': res2.get('base_info').get('idcard'),
+                            'phone': res2.get('base_info').get('phone'),
+                            'service': service,
+                            'time': time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(info.get('create_time'))),
+                            'report_id': info.get('report_id'),
+                        })
             return render(request, 'service.html', {'res': res, 'userinfo': user_info})
         else:
             return render(request, 'service.html', {'res': {}})

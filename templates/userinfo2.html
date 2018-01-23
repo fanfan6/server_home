@@ -3,10 +3,13 @@
 {% block body %}
 
 <section class="row">
-    <div class="col-md-12 report-summary" style="padding-left: 100px;"><h2>信用分总估</h2>{{ credit_report_summary.0.module }}</div>
+    <div class="col-md-6 report-summary" style="text-align: center;"><h2>信用分总估</h2></div>
+    <div class="col-md-6 report-summary" style="text-align: center;"><h2>　　　</h2></div>
     <div class="row">
         <div class="col-md-6" id="main" style="height: 400px;"></div>
-        <div class="col-md-6" id="main1" style="height: 400px;"></div>
+        <div class="col-md-6" id="main1" style="height: 400px;">　　　</div>
+        <div class="col-md-6" style="text-align: center; position: relative; top: -70px"><h3>战胜了{{ credit_report_summary.0.score_quantile }}%的人</h3></div>
+        <div class="col-md-6" style="text-align: center; position: relative; top: -70px"><h3></h3>　　　</div>
 {#        <div class="col-md-3" style="padding-left: 58px; font-size: 1.2em;">黑名单：{{ is_black }}</div>#}
 {#        <div class="col-md-3" style="padding-left: 58px; font-size: 1.2em;">欺诈分：{{ base_info.fraud_level }}</div>#}
         <script type="text/javascript">
@@ -44,7 +47,7 @@
                         },
                         axisLine: {            // 坐标轴线
                             lineStyle: {       // 属性lineStyle控制线条样式
-                                color: [[0.2, '#c23531'], [0.8, '#63869e'], [1, '#91c7ae']],
+                                color: [[0.2, '#c23531'], [0.8, '#63869e'], [1, '#91c7ae']]
                             }
                         },
                         data: [{value: {{ credit_report_summary.0.score }}, name: '信用分'}]
@@ -64,7 +67,7 @@
         <div class="col-sm-4" style="padding-left: 70px;">
             <h4>评估得分 ：{{ sub_report.simport_zhengxin_report.summary.score }}</h4>
         </div>
-        <div class="col-sm-8 clearfix" style="padding-left: 20px;"><h4>战胜了{{ sub_report.simport_zhengxin_report.summary.score_quantile }}的人</h4> </div>
+        <div class="col-sm-8 clearfix" style="padding-left: 20px;"><h4></h4> </div>
     </div>
     <div class="col-sm-4 clearfix"><h4>参考项</h4></div>
     <div class="col-sm-8"><h4>值</h4></div>

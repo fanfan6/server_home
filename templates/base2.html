@@ -35,13 +35,13 @@
 
 <div class="headers">
     <div class="report_type"> <h1>天启智创信用评估报告</h1></div>
-    {% if report_type == 201 %}
+    {% if report_type == '201' %}
         <div><h3>类型：风控决策引擎类报告</h3></div>
     {% else %}
         <div><h3>类型：风控数据查询类报告</h3></div>
+        <div style="font-size: 0.8em">注：以下数据皆来自天启数据</div>
     {% endif %}
 
-    <div style="font-size: 0.8em">注：以下数据皆来自天启数据</div>
 </div>
 <div class="row user-info">
     <div class="col-md-12" style="padding-bottom: 15px;"><h3>姓名:{{ user_info.name }}</h3></div>

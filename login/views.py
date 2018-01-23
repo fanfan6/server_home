@@ -33,6 +33,8 @@ class LoginView(View):
     def post(self, request):
         username = request.POST.get('username')
         password = request.POST.get('password')
+        print username
+        print password
         user = authenticate(username=username, password=password)
         if user is not None:
             if user.is_active:
@@ -49,5 +51,8 @@ class LoginView(View):
 
 @login_required
 def logout(request):
-    auth_logout(request)
-    return render(request, 'login.html')
+    res = HttpResponseRedirect('/login')
+    res.delete_cookie('username')
+    res.delete_cookie('sessionid')
+    print request.user.username
+    return res

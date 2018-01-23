@@ -47,7 +47,7 @@
                                 color: [[0.2, '#c23531'], [0.8, '#63869e'], [1, '#91c7ae']],
                             }
                         },
-                        data: [{value: {{ credit_report_summary.0.score }} , name: '信用分'}]
+                        data: [{value: {{ credit_report_summary.0.score }} , name: '{{  credit_report_summary.0.module  }}'}]
                     }
                     ]
                 };
@@ -93,7 +93,7 @@
                                 color: [[0.2, '#c23531'], [0.8, '#63869e'], [1, '#91c7ae']],
                             }
                         },
-                        data: [{value: {{ credit_report_summary.1.score }}, name: '信用分'}]
+                        data: [{value: {{ credit_report_summary.1.score }}, name: '{{  credit_report_summary.1.module  }}'}]
                     }
                     ]
                 };
