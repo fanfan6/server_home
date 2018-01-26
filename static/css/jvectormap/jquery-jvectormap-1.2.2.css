@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .jvectormap-label {
     position: absolute;
     display: none;
@@ -33,4 +34,41 @@
 
 .jvectormap-zoomout {
     top: 35px;
+=======
+.jvectormap-label {
+    position: absolute;
+    display: none;
+    border: solid 1px #CDCDCD;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #292929;
+    color: white;
+    font-size: 10px!important;
+    padding: 3px;
+    z-index: 9999;
+}
+
+.jvectormap-zoomin, .jvectormap-zoomout {
+    position: absolute;
+    left: 10px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #292929;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+    line-height: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.jvectormap-zoomin {
+    top: 10px;
+}
+
+.jvectormap-zoomout {
+    top: 35px;
+>>>>>>> de3dd54b5b842fdf8945198b6bc0388571d1e684
 }

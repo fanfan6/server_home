@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * Serbian cyrillic translation for bootstrap-datepicker
  * Bojan Milosavlević <milboj@gmail.com>
@@ -12,3 +13,19 @@
 		today: "Данас"
 	};
 }(jQuery));
+=======
+/**
+ * Serbian cyrillic translation for bootstrap-datepicker
+ * Bojan Milosavlević <milboj@gmail.com>
+ */
+;(function($){
+	$.fn.datepicker.dates['rs'] = {
+		days: ["Недеља","Понедељак", "Уторак", "Среда", "Четвртак", "Петак", "Субота", "Недеља"],
+		daysShort: ["Нед", "Пон", "Уто", "Сре", "Чет", "Пет", "Суб", "Нед"],
+		daysMin: ["Н", "По", "У", "Ср", "Ч", "Пе", "Су", "Н"],
+		months: ["Јануар", "Фебруар", "Март", "Април", "Мај", "Јун", "Јул", "Август", "Септембар", "Октобар", "Новембар", "Децембар"],
+		monthsShort: ["Јан", "Феб", "Мар", "Апр", "Мај", "Јун", "Јул", "Авг", "Сеп", "Окт", "Нов", "Дец"],
+		today: "Данас"
+	};
+}(jQuery));
+>>>>>>> de3dd54b5b842fdf8945198b6bc0388571d1e684
