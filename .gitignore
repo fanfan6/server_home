@@ -1,4 +1,4 @@
-setting.py
+settings.py
 *.pyc
 /report_info/migrations/*
 /login/migrations/*
