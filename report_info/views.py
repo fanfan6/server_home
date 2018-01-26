@@ -24,7 +24,8 @@ def auth(func):
     def inner(request, *args, **kwargs):
         v = request.COOKIES.get('username')
         if not v:
-            return redirect('/login')
+            # return redirect('/login')
+            return func(request, *args, **kwargs)
         return func(request, *args, **kwargs)
     return inner
 
