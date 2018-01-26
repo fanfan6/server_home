@@ -28,6 +28,7 @@
         <script src="/static/js/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+    <script src="../static/js/login.js"></script>
 </head>
 <body style="width: 80%; margin: 0 auto;">
 
@@ -54,10 +55,12 @@
 {% block body %}
 {% endblock %}
 
-<div style="height: 20px;"></div>
 <script type="text/javascript">
     function savepdf() {
-        var pdf = new jsPDF('p','pt','a4');
+        var windowsHeigh = $(document.body).outerHeight(true);
+        var windowsWidth = $(document.body).outerWidth(true);
+
+        var pdf = new jsPDF('','pt',[windowsHeigh, windowsWidth]);
         pdf.internal.scaleFactor = 1;
         var options = {
              pagesplit: true
@@ -66,6 +69,7 @@
             pdf.save('{{ user_info.name }}.pdf');
         });
     }
+
 
     $("#download").click(function () {
         savepdf();
