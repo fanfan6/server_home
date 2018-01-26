@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="panel">
+  <header class="panel-heading" style="background-color: #4cae4c; color: #fff7e1">
+      <h4>查询历史</h4>
+</header>
+<div class="panel-body table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>身份证号</th>
+          <!-- <th>Client</th> -->
+          <th>手机号</th>
+          <!-- <th>Price</th> -->
+          <th>服务</th>
+          <th>查询时间</th>
+          <th>查看报告</th>
+      </tr>
+  </thead>
+  <tbody>
+  {% for each in res %}
+  <a href="/info/report/{{ each.report_id }}">
+    <tr>
+      <td>{{ each.name }}</td>
+      <td>{{ each.idcard }}</td>
+      <!-- <td>Steve</td> -->
+      <td>{{ each.phone }}</td>
+      <!-- <td>$1500</td> -->
+      <td>{{ each.service }}</td>
+      <td>{{ each.search_time }}</td>
+        <td><a  target="_blank" href="/info/report/{{ each.report_id }}">查看报告</a></td>
+    </tr>
+  </a>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</section>
+
+{% endblock %}

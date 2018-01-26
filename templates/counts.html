@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{%load staticfiles%}
+
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <header class="panel-heading" style="background-color: #4cae4c; color: #fff7e1">
+                    <h4>查询统计</h4>
+                </header>
+                <div class="panel-body">
+                    <form class="form-inline" role="form" action="/count/count_info" method="get">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="col-md-4" style="height: 34px; line-height: 34px; text-align: center;"><b>起始时间</b></div>
+                                <div class='input-group col-md-8 date' id='datetimepicker1'>
+                                    <input type='text' class="form-control" name="start_time" value="{{ date.start_time }}" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="col-md-4" style="height: 34px; line-height: 34px; text-align: center;"><b>结束时间</b></div>
+                                <div class='input-group col-md-8 date' id='datetimepicker2'  name="end_time">
+                                    <input type='text' class="form-control" name="end_time" value="{{ date.end_time }}" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="submit" class="btn btn-success" value="搜索" >
+                            </div>
+                            {% if res %}
+                            <div class="col-md-2">
+                                <a href="/count/download" class="btn btn-primary btn-addon btn-sm">
+                                    下载统计
+                                </a>
+                            </div>
+                            {% endif %}
+
+                        </div>
+                    </form>
+
+                </div>
+            </section>
+        </div>
+    </div>
+{% if res %}
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel">
+                <header class="panel-heading">
+                    查询结果
+                </header>
+                <div class="panel-body table-responsive">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>日期</th>
+                            {% for each in service %}
+                            <th>{{ each }}</th>
+                            {% endfor %}
+                            <th>总计</th>
+                        </tr>
+                        {% for each in res %}
+                        <tr>
+                            <td>{{ each.date }}</td>
+                            {% for i in each.service %}
+                            <td>{{ i }}</td>
+                            {% endfor %}
+                            <th>{{ each.sum }}</th>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <th>总计</th>
+                            {% for j in service_sum %}
+                            <th>{{ j }}</th>
+                            {% endfor %}
+                            <th>{{ all_sum }}</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endif %}
+{% endblock %}
+

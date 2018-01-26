@@ -1,0 +1,5 @@
+*.pyc
+/report_info/migrations/*
+/login/migrations/*
+/.idea/
+
