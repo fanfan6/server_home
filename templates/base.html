@@ -119,6 +119,22 @@
                             <i class="fa fa-search-minus"></i> <span>查询统计</span>
                         </a>
                     </li>
+                    <li class="active table5">
+                        <a href="/statistics/index">
+                            <i class="fa fa-search-minus"></i> <span>统计报表</span>
+                        </a>
+                            <ul class="UL2 sidebar-menu">
+                                <li class="active" style="font-size: smaller; margin-left: 50px;">
+                                    <a href="/statistics/index">客户画像</a>
+                                </li>
+                                <li class="active" style="font-size: smaller; margin-left: 50px;">
+                                    <a href="/statistics/app_pass">申请通过</a>
+                                </li>
+                                <li class="active" style="font-size: smaller; margin-left: 50px;">
+                                    <a href="/statistics/mod_grade">模型评分</a>
+                                </li>
+                            </ul>
+                    </li>
                 </ul>
             </section>
         </aside>
@@ -157,16 +173,24 @@
 
         var nowURL = window.location.pathname;
         if(nowURL === '/info/search') {
+            $(document).find('.UL2').hide();
             $(document).find(".table1").addClass('cur').siblings().removeClass('cur');
         }
-        else if(nowURL === '/info/service_user'){
+        if(nowURL === '/info/service_user'){
+            $(document).find('.UL2').hide();
             $(document).find(".table2").addClass('cur').siblings().removeClass('cur');
         }
-        else if(nowURL === '/info/history'){
+        if(nowURL === '/info/history'){
+            $(document).find('.UL2').hide();
             $(document).find(".table3").addClass('cur').siblings().removeClass('cur');
         }
-        else if(nowURL === '/count/search'){
+        if(nowURL === '/count/search'){
             $(document).find(".table4").addClass('cur').siblings().removeClass('cur');
+            $(document).find('.UL2').hide();
+        }
+        if(nowURL === '/statistics/index'){
+            $(document).find(".table5").addClass('cur').siblings().removeClass('cur');
+            $(document).find('.UL2').show();
         }
     })
 
