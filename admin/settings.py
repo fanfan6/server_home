@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'report_info',
     'count',
     'statistics',
+    'test4',
 ]
 
 MIDDLEWARE_CLASSES = [

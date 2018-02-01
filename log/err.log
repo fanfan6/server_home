@@ -8607,3 +8607,16 @@ Traceback (most recent call last):
   File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 518, in parse
     raise self.error(token, e)
 TemplateSyntaxError: 'block' tag with name 'content' appears more than once
+2018-02-01 16:24:31,487 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/index
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 34, in index
+    select_mon = datetime.date(i.split('-')[0], i.split('-')[1], 1).strftime('%Y-%m')
+TypeError: an integer is required
