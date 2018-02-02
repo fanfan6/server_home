@@ -8620,3 +8620,134 @@ Traceback (most recent call last):
   File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 34, in index
     select_mon = datetime.date(i.split('-')[0], i.split('-')[1], 1).strftime('%Y-%m')
 TypeError: an integer is required
+2018-02-02 17:58:40,288 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/index
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 78, in index
+    all_date = data.get_all()
+AttributeError: 'get_date' object has no attribute 'get_all'
+2018-02-02 18:01:01,259 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/app_pass
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 130, in app_pass
+    res_hour.append(count_number(data.get_hour()[index + 1], j))
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 121, in count_number
+    res = [all_num, pass_num, round(pass_num/float(all_num), 4)]
+ZeroDivisionError: float division by zero
+2018-02-02 18:02:56,246 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/app_pass
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 130, in app_pass
+    res_hour.append(count_number(data.get_hour()[index + 1], j))
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 121, in count_number
+    res = [all_num, pass_num, round(pass_num/float(all_num), 4)]
+ZeroDivisionError: float division by zero
+2018-02-02 18:05:56,036 [CASdjango.request] [Thread-5] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/app_pass
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 130, in app_pass
+    res_hour.append(count_number(data.get_hour()[index + 1], j))
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 121, in count_number
+    res = [all_num, pass_num, round(pass_num/float(all_num), 4)]
+ZeroDivisionError: float division by zero
+2018-02-02 18:09:37,252 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/app_pass
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 132, in app_pass
+    res_hour.append(count_number(data.get_hour()[index + 1], j))
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 123, in count_number
+    res = [all_num, pass_num, round(pass_num/float(all_num), 4)]
+ZeroDivisionError: float division by zero
+2018-02-02 18:09:49,513 [CASdjango.request] [Thread-5] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/app_pass
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 132, in app_pass
+    res_hour.append(count_number(data.get_hour()[index + 1], j))
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 123, in count_number
+    res = [all_num, pass_num, round(pass_num/float(all_num), 4)]
+ZeroDivisionError: float division by zero
+2018-02-02 18:10:24,139 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/app_pass
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 143, in app_pass
+    res_week = [data.get_week()]
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 41, in get_week
+    now_wday = self.now_date.tm_wday
+AttributeError: 'get_date' object has no attribute 'now_date'
+2018-02-02 18:11:25,710 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/app_pass
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 143, in app_pass
+    res_week = [data.get_week()]
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 41, in get_week
+    now_wday = self.now_date.tm_wday
+AttributeError: 'get_date' object has no attribute 'now_date'
+2018-02-02 18:28:08,183 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/app_pass
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 133, in app_pass
+    hour.append(time.strftime("%Y-%m-%d %H:%M:%S", i))
+TypeError: argument must be 9-item sequence, not int

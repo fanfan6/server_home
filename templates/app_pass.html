@@ -41,63 +41,17 @@
                                     <tr>
                                         <td>日期</td>
                                         <td>申请量</td>
-                                        <td>机审通过量</td>
-                                        <td>机审通过率</td>
-                                        <td>人审通过量</td>
-                                        <td>人审通过率</td>
-                                        <td>总通过量</td>
-                                        <td>总通过率</td>
+                                        <td>通过量</td>
+                                        <td>通过率</td>
                                     </tr>
+                                    {% for eachh in res_hour %}
                                     <tr>
-                                        <td>2017-01-01</td>
-                                        <td>1000</td>
-                                        <td>123</td>
-                                        <td>0.123</td>
-                                        <td>454</td>
-                                        <td>0.454</td>
-                                        <td>577</td>
-                                        <td>0.577</td>
+                                        <td>{{ eachh.0 }}</td>
+                                        <td>{{ eachh.1 }}</td>
+                                        <td>{{ eachh.2 }}</td>
+                                        <td>{{ eachh.3 }}</td>
                                     </tr>
-                                    <tr>
-                                        <td>2017-01-01</td>
-                                        <td>1000</td>
-                                        <td>123</td>
-                                        <td>0.123</td>
-                                        <td>454</td>
-                                        <td>0.454</td>
-                                        <td>577</td>
-                                        <td>0.577</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2017-01-01</td>
-                                        <td>1000</td>
-                                        <td>123</td>
-                                        <td>0.123</td>
-                                        <td>454</td>
-                                        <td>0.454</td>
-                                        <td>577</td>
-                                        <td>0.577</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2017-01-01</td>
-                                        <td>1000</td>
-                                        <td>123</td>
-                                        <td>0.123</td>
-                                        <td>454</td>
-                                        <td>0.454</td>
-                                        <td>577</td>
-                                        <td>0.577</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2017-01-01</td>
-                                        <td>1000</td>
-                                        <td>123</td>
-                                        <td>0.123</td>
-                                        <td>454</td>
-                                        <td>0.454</td>
-                                        <td>577</td>
-                                        <td>0.577</td>
-                                    </tr>
+                                    {% endfor %}
                                 </table>
                             </div>
                         </div>
@@ -107,59 +61,60 @@
                                     <tr>
                                         <td>日期</td>
                                         <td>申请量</td>
-                                        <td>机审通过量</td>
-                                        <td>机审通过率</td>
-                                        <td>人审通过量</td>
-                                        <td>人审通过率</td>
-                                        <td>总通过量</td>
-                                        <td>总通过率</td>
+                                        <td>通过量</td>
+                                        <td>通过率</td>
                                     </tr>
+                                    {% for eachd in res_day %}
                                     <tr>
-                                        <td>2017-01-01</td>
-                                        <td>1000</td>
-                                        <td>123</td>
-                                        <td>0.123</td>
-                                        <td>454</td>
-                                        <td>0.454</td>
-                                        <td>577</td>
-                                        <td>0.577</td>
+                                        <td>{{ eachd.0 }}</td>
+                                        <td>{{ eachd.1 }}</td>
+                                        <td>{{ eachd.2 }}</td>
+                                        <td>{{ eachd.3 }}</td>
                                     </tr>
-                                    <tr>
-                                        <td>2017-01-01</td>
-                                        <td>1000</td>
-                                        <td>123</td>
-                                        <td>0.123</td>
-                                        <td>454</td>
-                                        <td>0.454</td>
-                                        <td>577</td>
-                                        <td>0.577</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2017-01-01</td>
-                                        <td>1000</td>
-                                        <td>123</td>
-                                        <td>0.123</td>
-                                        <td>454</td>
-                                        <td>0.454</td>
-                                        <td>577</td>
-                                        <td>0.577</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2017-01-01</td>
-                                        <td>1000</td>
-                                        <td>123</td>
-                                        <td>0.123</td>
-                                        <td>454</td>
-                                        <td>0.454</td>
-                                        <td>577</td>
-                                        <td>0.577</td>
-                                    </tr>
-
+                                    {% endfor %}
                                 </table>
                             </div>
                         </div>
-                        <div id="passweek" class="tab-pane">周</div>
-                        <div id="passmon" class="tab-pane">月</div>
+                        <div id="passweek" class="tab-pane">
+                            <div class="panel-body table-responsive panel-collapse collapse">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <td>日期</td>
+                                        <td>申请量</td>
+                                        <td>通过量</td>
+                                        <td>通过率</td>
+                                    </tr>
+                                    {% for eachw in res_week %}
+                                    <tr>
+                                        <td>{{ eachw.0 }}</td>
+                                        <td>{{ eachw.1 }}</td>
+                                        <td>{{ eachw.2 }}</td>
+                                        <td>{{ eachw.3 }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                        <div id="passmon" class="tab-pane">
+                            <div class="panel-body table-responsive panel-collapse collapse">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <td>日期</td>
+                                        <td>申请量</td>
+                                        <td>通过量</td>
+                                        <td>通过率</td>
+                                    </tr>
+                                    {% for eachm in res_mon %}
+                                    <tr>
+                                        <td>{{ eachm.0 }}</td>
+                                        <td>{{ eachm.1 }}</td>
+                                        <td>{{ eachm.2 }}</td>
+                                        <td>{{ eachm.3 }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

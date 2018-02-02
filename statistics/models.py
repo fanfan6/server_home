@@ -66,3 +66,13 @@ class ModelRunningRecord(models.Model):
     class Meta:
         managed = False
         db_table = 'model_running_record'
+
+
+class ModelFeature(models.Model):
+    model_feature_id = models.BigAutoField(primary_key=True)
+    description = models.CharField(max_length=128)
+    created_time = models.BigIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'model_feature'
