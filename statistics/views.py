@@ -69,6 +69,7 @@ class get_date(object):
         return res_hour
 
 
+# 客户画像
 def index(request):
     app_id = 12345
     # 查询的开始时间与结束时间，从当前日期的开始，向前数12个月（包括本月）
@@ -126,6 +127,7 @@ def count_number(start_time, end_time):
     return res
 
 
+# 申请量，通过量，通过率
 def app_pass(request):
     # 过去的12小时
     data = get_date()
@@ -139,7 +141,6 @@ def app_pass(request):
         day_start_time = int(time.mktime(time.strptime(data.get_day()[index + 1], "%Y-%m-%d")))
         day_end_time = int(time.mktime(time.strptime(each, "%Y-%m-%d")))
         res_day.append(count_number(day_start_time, day_end_time))
-    print res_day
 
     # 过去的12周
     res_week = []
@@ -147,7 +148,6 @@ def app_pass(request):
         week_start_time = int(time.mktime(time.strptime(w_each[-1], "%Y-%m-%d")))
         week_end_time = int(time.mktime(time.strptime(w_each[0], "%Y-%m-%d")))
         res_week.append(count_number(week_start_time, week_end_time))
-    print res_week
 
     # 过去的12个月
     res_mon = []
@@ -155,10 +155,7 @@ def app_pass(request):
         mon_start_time = int(time.mktime(time.strptime(data.get_mon()[index + 1], "%Y-%m-%d")))
         mon_end_time = int(time.mktime(time.strptime(each, "%Y-%m-%d")))
         res_mon.append(count_number(mon_start_time, mon_end_time))
-    print res_mon
-
-    return render(request, 'app_pass.html', {'res_hour': res_hour, 'res_day': res_day,
-                                             'res_week': res_week, 'res_mon': res_mon})
+    return render(request, 'app_pass.html', {'res_hour': res_hour, 'res_day': res_day, 'res_week': res_week,'res_mon': res_mon})
 
 
 def not_pass_content(start_time, end_time):
@@ -177,17 +174,29 @@ def do_count(alist):
             a_set.add(each.module)
     # 把查询过的service集合转为list并排序
     data_list = sorted(list(a_set))
+    print data_list
     # 新键一个list，用于存放数据。list长度与len(service)相等，以确保每列数据固定，并与data对应
     res = []
     for eachs in alist:
         a = [0] * len(data_list)
         for each in eachs:
             a[data_list.index(each.module)] = each.score
-        res.append([numpy.average(a), numpy.min(a), numpy.percentile(a, 5), numpy.percentile(a, 25),
-                    numpy.percentile(a, 50), numpy.percentile(a, 75), numpy.percentile(a, 95), numpy.max(a, 5)])
-    return [data_list, res]
+        res.append(a)
+    res1 = map(list, zip(*res))
+    print res1
+    res2 = []
+    for each in res1:
+        try:
+            res2.append([numpy.average(each), numpy.min(each), numpy.percentile(each, 5), numpy.percentile(each, 25),
+                         numpy.percentile(each, 50), numpy.percentile(each, 75), numpy.percentile(each, 95),
+                         numpy.max(each)])
+        except:
+            res2.append([0, 0, 0, 0, 0, 0, 0, 0])
+    print res2
+    return [data_list, res2]
 
 
+# 模型评分
 def mod_grade(request):
     data = get_date()
     # 过去的12时
@@ -220,5 +229,31 @@ def mod_grade(request):
         res_mon.append(not_pass_content(mon_start_time, mon_end_time))
     response_mon = do_count(res_mon)
 
-    return render(request, 'mod_grade.html', {'response_hour':response_hour, 'response_day': response_day,
+    return render(request, 'mod_grade.html', {'response_hour': response_hour, 'response_day': response_day, 'date': date_format(),
                                               'response_week': response_week, 'response_mon': response_mon})
+
+
+def conformity(res, content):
+    data = date_format()
+    for i in res:
+        print i
+
+# 时间的表达格式
+def date_format():
+    hour = []
+    day = []
+    week = []
+    month = []
+    data = get_date()
+    for i in data.get_hour():
+        hour.append(time.strftime("%H:%M", time.localtime(i)))
+    for i in data.get_day():
+        day.append(i[-5:])
+    for i in data.get_week():
+        week.append(i[-1][-5:] + '/' + i[0][-5:])
+    for i in data.get_mon():
+        month.append(i)
+    return [hour, day, week, month]
+
+
+

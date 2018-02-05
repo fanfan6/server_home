@@ -15,6 +15,298 @@
     </div>
     <div class="row">
         <div class="col-xs-12">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                评分状况 表格 （点击隐藏）
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <section class="panel">
+                                <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
+                                    <ul class="nav nav-tabs pull-right">
+                                        <li class="active">
+                                            <a data-toggle="tab" href="#scorehour">
+                                                时
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a data-toggle="tab" href="#scoreday">
+                                                日
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a data-toggle="tab" href="#scoreweek">
+                                                周
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a data-toggle="tab" href="#scoremonth">
+                                                月
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </header>
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <div id="scorehour" class="tab-pane active">
+                                            <table class="table table-hover">
+                                                <tr>
+                                                    <td>时间</td>
+                                                    <td>平均值</td>
+                                                    <td>最小值</td>
+                                                    <td>P5</td>
+                                                    <td>P25</td>
+                                                    <td>P50</td>
+                                                    <td>P75</td>
+                                                    <td>P95</td>
+                                                    <td>最大值</td>
+                                                </tr>
+                                                {% for eachd in response_hour.1 %}
+                                                <tr>
+                                                    <td>{{ date.0.0 }}</td>
+                                                    <td>{{ eachd.0 }}</td>
+                                                    <td>{{ eachd.1 }}</td>
+                                                    <td>{{ eachd.2 }}</td>
+                                                    <td>{{ eachd.3 }}</td>
+                                                    <td>{{ eachd.4 }}</td>
+                                                    <td>{{ eachd.5 }}</td>
+                                                    <td>{{ eachd.6 }}</td>
+                                                    <td>{{ eachd.7 }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </table>
+                                        </div>
+                                        <div id="scoreday" class="tab-pane">
+                                            <table class="table table-hover">
+                                                <tr>
+                                                    <td>时间</td>
+                                                    <td>平均值</td>
+                                                    <td>最小值</td>
+                                                    <td>P5</td>
+                                                    <td>P25</td>
+                                                    <td>P50</td>
+                                                    <td>P75</td>
+                                                    <td>P95</td>
+                                                    <td>最大值</td>
+                                                </tr>
+                                                {% for eachd in response_day.1 %}
+                                                <tr>
+                                                    <td>{{ date.1 }}</td>
+                                                    <td>{{ eachd.0 }}</td>
+                                                    <td>{{ eachd.1 }}</td>
+                                                    <td>{{ eachd.2 }}</td>
+                                                    <td>{{ eachd.3 }}</td>
+                                                    <td>{{ eachd.4 }}</td>
+                                                    <td>{{ eachd.5 }}</td>
+                                                    <td>{{ eachd.6 }}</td>
+                                                    <td>{{ eachd.7 }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </table>
+                                        </div>
+                                        <div id="scoreweek" class="tab-pane">
+                                            <table class="table table-hover">
+                                                <tr>
+                                                    <td>时间</td>
+                                                    <td>平均值</td>
+                                                    <td>最小值</td>
+                                                    <td>P5</td>
+                                                    <td>P25</td>
+                                                    <td>P50</td>
+                                                    <td>P75</td>
+                                                    <td>P95</td>
+                                                    <td>最大值</td>
+                                                </tr>
+                                                {% for eachd in response_week.1 %}
+                                                <tr>
+                                                    <td>{{ eachd.0 }}</td>
+                                                    <td>{{ eachd.1 }}</td>
+                                                    <td>{{ eachd.2 }}</td>
+                                                    <td>{{ eachd.3 }}</td>
+                                                    <td>{{ eachd.4 }}</td>
+                                                    <td>{{ eachd.5 }}</td>
+                                                    <td>{{ eachd.6 }}</td>
+                                                    <td>{{ eachd.7 }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </table>
+                                        </div>
+                                        <div id="scoremonth" class="tab-pane">
+                                            <table class="table table-hover">
+                                                <tr>
+                                                    <td>时间</td>
+                                                    <td>平均值</td>
+                                                    <td>最小值</td>
+                                                    <td>P5</td>
+                                                    <td>P25</td>
+                                                    <td>P50</td>
+                                                    <td>P75</td>
+                                                    <td>P95</td>
+                                                    <td>最大值</td>
+                                                </tr>
+                                                {% for eachd in response_mon.1 %}
+                                                <tr>
+                                                    <td>{{ eachd.0 }}</td>
+                                                    <td>{{ eachd.1 }}</td>
+                                                    <td>{{ eachd.2 }}</td>
+                                                    <td>{{ eachd.3 }}</td>
+                                                    <td>{{ eachd.4 }}</td>
+                                                    <td>{{ eachd.5 }}</td>
+                                                    <td>{{ eachd.6 }}</td>
+                                                    <td>{{ eachd.7 }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                通过量 图表 （点击隐藏）
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <section class="panel">
+                                <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
+                                    <ul class="nav nav-tabs pull-right">
+                                        <li class="active">
+                                            <a data-toggle="tab" class="reload" href="#pichour">
+                                                时
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a data-toggle="tab" class="reload" href="#picday">
+                                                日
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a data-toggle="tab" class="reload" href="#picweek">
+                                                周
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a data-toggle="tab" class="reload" href="#picmonth">
+                                                月
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </header>
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        {% block pic_info %}
+                                        <div id="pichour" class="tab-pane active">
+                                            <div id="mainh" style="width: auto;height:400px;"></div>
+                                                <script src="/static/js/echarts.min.js"></script>
+                                                <script src="/static/js/macarons.js"></script>
+                                                <script type="text/javascript">
+                                                    var myCharth = echarts.init(document.getElementById('mainh'), 'macarons');
+                                                    optionh = {
+                                                        tooltip: {
+                                                            trigger: 'axis',
+                                                            axisPointer: {
+                                                                type: 'cross',
+                                                                crossStyle: {
+                                                                    color: '#999'
+                                                                }
+                                                            }
+                                                        },
+                                                        toolbox: {
+                                                            feature: {
+                                                                dataView: {show: true, readOnly: false},
+                                                                magicType: {show: true, type: ['line', 'bar']},
+                                                                restore: {show: true},
+                                                                saveAsImage: {show: true}
+                                                            }
+                                                        },
+                                                        legend: {
+                                                            data:['申请量','通过量','通过率']
+                                                        },
+                                                        xAxis: [
+                                                            {
+                                                                type: 'category',
+                                                                data: [
+                                                                    {% for eachh in res_hour %}
+                                                                        '{{ eachh.0 }}',
+                                                                    {% endfor %}
+                                                                ],
+                                                                axisPointer: {
+                                                                    type: 'shadow'
+                                                                }
+                                                            }
+                                                        ],
+                                                        yAxis: [
+                                                            {
+                                                                type: 'value',
+                                                                name: '人次',
+                                                                axisLabel: {
+                                                                    formatter: '{value}'
+                                                                }
+                                                            },
+                                                            {
+                                                                type: 'value',
+                                                                name: '通过率',
+                                                                min: 0,
+                                                                max: 1,
+                                                                axisLabel: {
+                                                                    formatter: '{value}'
+                                                                }
+                                                            }
+                                                        ],
+                                                        series: [
+                                                            {
+                                                                name:'申请量',
+                                                                type:'bar',
+                                                                data:[
+                                                                    {% for eachh in res_hour %}
+                                                                        '{{ eachh.1 }}',
+                                                                    {% endfor %}
+                                                                ]
+                                                            },
+                                                            {
+                                                                name:'通过量',
+                                                                type:'bar',
+                                                                data:[
+                                                                    {% for eachh in res_hour %}
+                                                                        '{{ eachh.2 }}',
+                                                                    {% endfor %}
+                                                                ]
+                                                            },
+                                                            {
+                                                                name:'通过率',
+                                                                type:'line',
+                                                                yAxisIndex: 1,
+                                                                data:[
+                                                                    {% for eachh in res_hour %}
+                                                                        '{{ eachh.3 }}',
+                                                                    {% endfor %}
+                                                                ]
+                                                            }
+                                                        ]
+                                                    };
+                                                    myCharth.setOption(optionh);
+                                                </script>
+                                        </div>
+                                        {% endblock %}
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <section class="panel general">
                 <header class="panel-heading tab-bg-dark-navy-blue">
                     <a data-toggle="collapse" data-parent="#accordion" href="#pass_application">审核通过</a>
@@ -41,46 +333,15 @@
                                     <tr>
                                         <th rowspan="2" style="vertical-align: middle !important;">日期</th>
                                         <th rowspan="2" style="vertical-align: middle !important;">申请量</th>
-                                        <th colspan="2" style="text-align: center;">黑名单</th>
-                                        <th colspan="2" style="text-align: center;">运营商</th>
+                                        {% for each in response_mon.0 %}
+                                        <th colspan="2" style="text-align: center;">{{ each }}</th>
+                                        {% endfor %}
                                     </tr>
                                     <tr>
+                                        {% for i in response_mon.0 %}
                                         <th>命中量</th>
                                         <th>命中率</th>
-                                        <th>命中量</th>
-                                        <th>命中率</th>
-                                    </tr>
-                                    <tr>
-                                        <th>2017-01-01</th>
-                                        <th>888</th>
-                                        <th>333</th>
-                                        <th>0.33</th>
-                                        <th>333</th>
-                                        <th>0.33</th>
-                                    </tr>
-                                    <tr>
-                                        <th>2017-01-01</th>
-                                        <th>888</th>
-                                        <th>333</th>
-                                        <th>0.33</th>
-                                        <th>333</th>
-                                        <th>0.33</th>
-                                    </tr>
-                                    <tr>
-                                        <th>2017-01-01</th>
-                                        <th>888</th>
-                                        <th>333</th>
-                                        <th>0.33</th>
-                                        <th>333</th>
-                                        <th>0.33</th>
-                                    </tr>
-                                    <tr>
-                                        <th>2017-01-01</th>
-                                        <th>888</th>
-                                        <th>333</th>
-                                        <th>0.33</th>
-                                        <th>333</th>
-                                        <th>0.33</th>
+                                        {% endfor %}
                                     </tr>
                                 </table>
                             </div>

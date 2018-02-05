@@ -8751,3 +8751,463 @@ Traceback (most recent call last):
   File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 133, in app_pass
     hour.append(time.strftime("%Y-%m-%d %H:%M:%S", i))
 TypeError: argument must be 9-item sequence, not int
+2018-02-05 14:09:04,287 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/app_pass
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 155, in app_pass
+    mon_start_time = int(time.mktime(time.strptime(data.get_mon()[index + 1], "%Y-%m-%d")))
+  File "/home/xinyu/.pyenv/versions/2.7.14/lib/python2.7/_strptime.py", line 478, in _strptime_time
+    return _strptime(data_string, format)[0]
+  File "/home/xinyu/.pyenv/versions/2.7.14/lib/python2.7/_strptime.py", line 332, in _strptime
+    (data_string, format))
+ValueError: time data '2017-13-1' does not match format '%Y-%m-%d'
+2018-02-05 15:54:49,593 [CASdjango.request] [Thread-242] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 207, in mod_grade
+    response_hour = do_count(res_hour)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 196, in do_count
+    res.append([numpy.average(a), numpy.min(a), numpy.percentile(a, 5), numpy.percentile(a, 25),
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/fromnumeric.py", line 2420, in amin
+    out=out, **kwargs)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/_methods.py", line 29, in _amin
+    return umr_minimum(a, axis, None, out, keepdims)
+ValueError: zero-size array to reduction operation minimum which has no identity
+2018-02-05 15:54:53,619 [CASdjango.request] [Thread-247] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 207, in mod_grade
+    response_hour = do_count(res_hour)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 196, in do_count
+    res.append([numpy.average(a), numpy.min(a), numpy.percentile(a, 5), numpy.percentile(a, 25),
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/fromnumeric.py", line 2420, in amin
+    out=out, **kwargs)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/_methods.py", line 29, in _amin
+    return umr_minimum(a, axis, None, out, keepdims)
+ValueError: zero-size array to reduction operation minimum which has no identity
+2018-02-05 16:00:36,852 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 210, in mod_grade
+    response_hour = do_count(res_hour)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 198, in do_count
+    res.append([numpy.average(a), numpy.min(a), numpy.percentile(a, 5), numpy.percentile(a, 25),
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/fromnumeric.py", line 2420, in amin
+    out=out, **kwargs)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/_methods.py", line 29, in _amin
+    return umr_minimum(a, axis, None, out, keepdims)
+ValueError: zero-size array to reduction operation minimum which has no identity
+2018-02-05 16:02:49,672 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 208, in mod_grade
+    response_hour = do_count(res_hour)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 195, in do_count
+    res.append([numpy.average(a), numpy.min(a), numpy.percentile(a, 5), numpy.percentile(a, 25),
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/fromnumeric.py", line 2420, in amin
+    out=out, **kwargs)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/_methods.py", line 29, in _amin
+    return umr_minimum(a, axis, None, out, keepdims)
+ValueError: zero-size array to reduction operation minimum which has no identity
+2018-02-05 16:03:37,116 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 209, in mod_grade
+    response_hour = do_count(res_hour)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 195, in do_count
+    res.append([numpy.average(a), numpy.min(a), numpy.percentile(a, 5), numpy.percentile(a, 25),
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/fromnumeric.py", line 2420, in amin
+    out=out, **kwargs)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/_methods.py", line 29, in _amin
+    return umr_minimum(a, axis, None, out, keepdims)
+ValueError: zero-size array to reduction operation minimum which has no identity
+2018-02-05 16:04:37,205 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 209, in mod_grade
+    response_hour = do_count(res_hour)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 197, in do_count
+    res.append([numpy.average(a), numpy.min(a), numpy.percentile(a, 5), numpy.percentile(a, 25),
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/fromnumeric.py", line 2420, in amin
+    out=out, **kwargs)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/_methods.py", line 29, in _amin
+    return umr_minimum(a, axis, None, out, keepdims)
+ValueError: zero-size array to reduction operation minimum which has no identity
+2018-02-05 16:05:16,542 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 209, in mod_grade
+    response_hour = do_count(res_hour)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 197, in do_count
+    res.append([numpy.average(a), numpy.min(a), numpy.percentile(a, 5), numpy.percentile(a, 25),
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/fromnumeric.py", line 2420, in amin
+    out=out, **kwargs)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/_methods.py", line 29, in _amin
+    return umr_minimum(a, axis, None, out, keepdims)
+ValueError: zero-size array to reduction operation minimum which has no identity
+2018-02-05 17:28:41,013 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 198, in mod_grade
+    response_hour = do_count(res_hour)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 184, in do_count
+    res.append([numpy.average(a), numpy.min(a), numpy.percentile(a, 5), numpy.percentile(a, 25),
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/fromnumeric.py", line 2420, in amin
+    out=out, **kwargs)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/_methods.py", line 29, in _amin
+    return umr_minimum(a, axis, None, out, keepdims)
+ValueError: zero-size array to reduction operation minimum which has no identity
+2018-02-05 17:29:36,234 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 223, in mod_grade
+    print response_hour
+NameError: global name 'response_hour' is not defined
+2018-02-05 17:29:56,377 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 224, in mod_grade
+    return render(request, 'mod_grade.html', {'response_hour':response_hour, 'response_day': response_day,
+NameError: global name 'response_hour' is not defined
+2018-02-05 17:32:56,490 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 199, in mod_grade
+    response_hour = do_count(res_hour)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 184, in do_count
+    res.append([numpy.average(a), numpy.min(a), numpy.percentile(a, 5), numpy.percentile(a, 25),
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/fromnumeric.py", line 2420, in amin
+    out=out, **kwargs)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/numpy/core/_methods.py", line 29, in _amin
+    return umr_minimum(a, axis, None, out, keepdims)
+ValueError: zero-size array to reduction operation minimum which has no identity
+2018-02-05 18:39:35,520 [CASdjango.request] [Thread-14] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 232, in mod_grade
+    'response_week': response_week, 'response_mon': response_mon})
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Could not parse the remainder: '(forloop.counter0)' from 'date.1.(forloop.counter0)'
+2018-02-05 18:46:14,355 [CASdjango.request] [Thread-28] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 232, in mod_grade
+    'response_week': response_week, 'response_mon': response_mon})
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader_tags.py", line 70, in render
+    result = block.nodelist.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/defaulttags.py", line 165, in render
+    values = list(values)
+TypeError: 'int' object is not iterable
+2018-02-05 18:52:20,737 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 234, in mod_grade
+    'response_week': response_week, 'response_mon': response_mon})
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader_tags.py", line 70, in render
+    result = block.nodelist.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/defaulttags.py", line 165, in render
+    values = list(values)
+TypeError: 'int' object is not iterable
+2018-02-05 18:52:42,148 [CASdjango.request] [Thread-5] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 234, in mod_grade
+    'response_week': response_week, 'response_mon': response_mon})
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Invalid block tag on line 108: 'endfor', expected 'endblock'. Did you forget to register or load this tag?
+2018-02-05 18:52:54,641 [CASdjango.request] [Thread-8] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 234, in mod_grade
+    'response_week': response_week, 'response_mon': response_mon})
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Invalid block tag on line 108: 'endfor', expected 'endblock'. Did you forget to register or load this tag?
+2018-02-05 18:55:20,375 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 235, in mod_grade
+    'response_week': response_week, 'response_mon': response_mon})
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Invalid block tag on line 108: 'endfor', expected 'endblock'. Did you forget to register or load this tag?
+2018-02-05 19:02:05,850 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 208, in mod_grade
+    response_hour = do_count(res_hour)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 190, in do_count
+    for each in res1[1]:
+IndexError: list index out of range
+2018-02-05 19:09:17,427 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 206, in mod_grade
+    response_hour = do_count(res_hour)
+TypeError: do_count() takes exactly 2 arguments (1 given)
