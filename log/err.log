@@ -9211,3 +9211,317 @@ Traceback (most recent call last):
   File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 206, in mod_grade
     response_hour = do_count(res_hour)
 TypeError: do_count() takes exactly 2 arguments (1 given)
+2018-02-06 10:37:55,012 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 208, in mod_grade
+    response_hour = do_count(res_hour)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 174, in do_count
+    a_set.add(each.module)
+AttributeError: 'QuerySet' object has no attribute 'module'
+2018-02-06 10:39:18,398 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 208, in mod_grade
+    response_hour = do_count(res_hour[0])
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 173, in do_count
+    for each in eachs:
+TypeError: 'int' object is not iterable
+2018-02-06 10:40:14,987 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 208, in mod_grade
+    response_hour = do_count(res_hour[0])
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 173, in do_count
+    for each in eachs:
+TypeError: 'int' object is not iterable
+2018-02-06 10:54:53,179 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 209, in mod_grade
+    response_hour = do_count(res_hour[0])
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 173, in do_count
+    for each in eachs:
+TypeError: 'int' object is not iterable
+2018-02-06 10:57:34,486 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 209, in mod_grade
+    response_hour = do_count(res_hour[:][:-1])
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 174, in do_count
+    a_set.add(each.module)
+AttributeError: 'QuerySet' object has no attribute 'module'
+2018-02-06 11:04:10,722 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 241, in mod_grade
+    return render(request, 'mod_grade.html', {'response_hour': response_hour, 'response_day': response_day, 'date': date_format(),
+NameError: global name 'response_day' is not defined
+2018-02-06 11:04:54,483 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 243, in mod_grade
+    return render(request, 'mod_grade.html', {'response_hour': response_hour, 'response_day': response_day, 'date': date_format(),
+NameError: global name 'response_day' is not defined
+2018-02-06 11:07:22,468 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 238, in mod_grade
+    return render(request, 'mod_grade.html', {'response_hour': response_hour, 'response_day': response_day, 'date': date_format(),
+NameError: global name 'response_day' is not defined
+2018-02-06 11:14:16,701 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 223, in mod_grade
+    res = do_count(i[0])
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 173, in do_count
+    for each in eachs:
+TypeError: 'ModelRunningRecord' object is not iterable
+2018-02-06 11:15:03,474 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 223, in mod_grade
+    res = do_count(i[0])
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 173, in do_count
+    for each in eachs:
+TypeError: 'ModelRunningRecord' object is not iterable
+2018-02-06 11:17:08,116 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 224, in mod_grade
+    res = do_count(i[0])
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 173, in do_count
+    for each in eachs:
+TypeError: 'ModelRunningRecord' object is not iterable
+2018-02-06 11:17:49,035 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 226, in mod_grade
+    res = do_count(i[0])
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 173, in do_count
+    for each in eachs:
+TypeError: 'ModelRunningRecord' object is not iterable
+2018-02-06 11:18:19,392 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 226, in mod_grade
+    res = do_count(i[0])
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 173, in do_count
+    for each in eachs:
+TypeError: 'ModelRunningRecord' object is not iterable
+2018-02-06 11:20:04,046 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 223, in mod_grade
+    res = do_count(i[0])
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 173, in do_count
+    for each in eachs:
+TypeError: 'ModelRunningRecord' object is not iterable
+2018-02-06 11:22:07,497 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 225, in mod_grade
+    res = do_count(i[0])
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 173, in do_count
+    for each in eachs:
+TypeError: 'ModelRunningRecord' object is not iterable
+2018-02-06 11:23:52,418 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 227, in mod_grade
+    res = do_count(i[0])
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 173, in do_count
+    for each in eachs:
+TypeError: 'ModelRunningRecord' object is not iterable
+2018-02-06 13:17:50,810 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 271, in mod_grade
+    'mod_m': mon_data_list})
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader_tags.py", line 70, in render
+    result = block.nodelist.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/defaulttags.py", line 217, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/defaulttags.py", line 165, in render
+    values = list(values)
+TypeError: 'int' object is not iterable
+2018-02-06 13:28:24,249 [CASdjango.request] [Thread-26] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 269, in mod_grade
+    'mod_m': mon_data_list})
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: default requires 2 arguments, 1 provided

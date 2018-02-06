@@ -158,12 +158,42 @@ def app_pass(request):
     return render(request, 'app_pass.html', {'res_hour': res_hour, 'res_day': res_day, 'res_week': res_week,'res_mon': res_mon})
 
 
-def not_pass_content(start_time, end_time):
+def score_content(start_time, end_time):
     data = models.ModelRunningRecord.objects.filter(
         Q(created_time__range=(start_time, end_time)), ~Q(module='simple_zhengxin_policy'),
         ~Q(module='policy'), ~Q(module='finally'), ~Q(module='old_user_model')
     )
-    return data
+    return data, end_time
+
+
+def not_pass_content(start_time, end_time):
+    data = models.ModelRunningRecord.objects.filter(
+        Q(created_time__range=(start_time, end_time)), Q(module='simple_zhengxin_policy') |
+        Q(module='policy') | Q(module='finally') | Q(module='old_user_model')
+    )
+    all_num = len(models.ModelRunningRecord.objects.filter(created_time__range=(start_time, end_time)))
+    alist = [0] * len(model_feature())
+    pro_list = []
+    for i in data:
+        res = model_feature_record(i.model_running_record_id)
+        for i in res:
+            alist[i] += 1
+    if all_num != 0:
+        pro_list = [round(x/float(all_num), 4) for x in alist]
+    return alist, pro_list, end_time
+
+
+def model_feature():
+    res = models.ModelFeature.objects.all()
+    return res
+
+
+def model_feature_record(id):
+    res = []
+    data = models.ModelFeatureRecord.objects.filter(model_running_record_id=id).values('model_feature_id')
+    for i in data:
+        res.append(i.get('model_feature_id'))
+    return res
 
 
 def do_count(alist):
@@ -174,25 +204,23 @@ def do_count(alist):
             a_set.add(each.module)
     # 把查询过的service集合转为list并排序
     data_list = sorted(list(a_set))
-    print data_list
     # 新键一个list，用于存放数据。list长度与len(service)相等，以确保每列数据固定，并与data对应
     res = []
+    res2 = []
     for eachs in alist:
         a = [0] * len(data_list)
         for each in eachs:
             a[data_list.index(each.module)] = each.score
         res.append(a)
     res1 = map(list, zip(*res))
-    print res1
-    res2 = []
+
     for each in res1:
-        try:
+        if not res1:
+            res2.append([0, 0, 0, 0, 0, 0, 0, 0])
+        else:
             res2.append([numpy.average(each), numpy.min(each), numpy.percentile(each, 5), numpy.percentile(each, 25),
                          numpy.percentile(each, 50), numpy.percentile(each, 75), numpy.percentile(each, 95),
                          numpy.max(each)])
-        except:
-            res2.append([0, 0, 0, 0, 0, 0, 0, 0])
-    print res2
     return [data_list, res2]
 
 
@@ -201,36 +229,76 @@ def mod_grade(request):
     data = get_date()
     # 过去的12时
     res_hour = []
+    res_hour2 = []
     for index, j in enumerate(data.get_hour()[:-1]):
-        res_hour.append(not_pass_content(data.get_hour()[index + 1], j))
-    response_hour = do_count(res_hour)
+        res, end_time = score_content(data.get_hour()[index + 1], j)
+        alist_hour, pro_list_hour, end_time_hour = not_pass_content(data.get_hour()[index + 1], j)
+        res_hour.append([res, end_time])
+        res_hour2.append([alist_hour, pro_list_hour, time.strftime("%H:%M:%S", time.localtime(end_time_hour))])
+    response_hour = []
+    hour_data_list = []
+    for i in res_hour:
+        res = do_count(i[:-1])
+        if res[0]:
+            hour_data_list = res[0]
+        res.insert(0, time.strftime("%H:%M:%S", time.localtime(i[-1])))
+        response_hour.append(res)
 
     # 过去12天
     res_day = []
+    res_day2 = []
     for index, each in enumerate(data.get_day()[:-1]):
         day_start_time = int(time.mktime(time.strptime(data.get_day()[index + 1], "%Y-%m-%d")))
         day_end_time = int(time.mktime(time.strptime(each, "%Y-%m-%d")))
-        res_day.append(not_pass_content(day_start_time, day_end_time))
-    response_day = do_count(res_day)
-
+        res, end_time = score_content(day_start_time, day_end_time)
+        alist_day, pro_list_day, end_time_day = not_pass_content(day_start_time, day_end_time)
+        res_day.append([res, end_time])
+        res_day2.append([alist_day, pro_list_day, time.strftime("%Y-%m-%d", time.localtime(end_time_day))])
+    response_day = []
+    day_data_list = []
+    for i in res_day:
+        res = do_count(i[:-1])
+        if res[0]:
+            day_data_list = res[0]
+        res.insert(0, time.strftime("%Y-%m-%d", time.localtime(i[-1])))
+        response_day.append(res)
+    print res_day2
     # 过去的12周
     res_week = []
     for w_each in data.get_week():
         week_start_time = int(time.mktime(time.strptime(w_each[-1], "%Y-%m-%d")))
         week_end_time = int(time.mktime(time.strptime(w_each[0], "%Y-%m-%d")))
-        res_week.append(not_pass_content(week_start_time, week_end_time))
-    response_week = do_count(res_week)
+        res, end_time = score_content(week_start_time, week_end_time)
+        res_week.append([res, end_time])
+    response_week = []
+    week_data_list = []
+    for i in res_week:
+        res = do_count(i[:-1])
+        if res[0]:
+            week_data_list = res[0]
+        res.insert(0, time.strftime("%Y-%m-%d", time.localtime(i[-1])))
+        response_week.append(res)
 
     # 过去的12个月
     res_mon = []
     for index, each in enumerate(data.get_mon()[:-1]):
         mon_start_time = int(time.mktime(time.strptime(data.get_mon()[index + 1], "%Y-%m-%d")))
         mon_end_time = int(time.mktime(time.strptime(each, "%Y-%m-%d")))
-        res_mon.append(not_pass_content(mon_start_time, mon_end_time))
-    response_mon = do_count(res_mon)
+        res, end_time = score_content(mon_start_time, mon_end_time)
+        res_mon.append([res, end_time])
+    response_mon = []
+    mon_data_list = []
+    for i in res_mon:
+        res = do_count(i[:-1])
+        if res[0]:
+            mon_data_list = res[0]
+        res.insert(0, time.strftime("%Y-%m-%d", time.localtime(i[-1])))
+        response_mon.append(res)
 
-    return render(request, 'mod_grade.html', {'response_hour': response_hour, 'response_day': response_day, 'date': date_format(),
-                                              'response_week': response_week, 'response_mon': response_mon})
+    return render(request, 'mod_grade.html', {'response_hour': response_hour, 'response_day': response_day,
+                                              'response_week': response_week, 'response_mon': response_mon,
+                                              'mod_h': hour_data_list, 'mod_d': day_data_list, 'mod_w': week_data_list,
+                                              'mod_m': mon_data_list, 'res_day2': res_day2})
 
 
 def conformity(res, content):
