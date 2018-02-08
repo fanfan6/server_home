@@ -12,9 +12,349 @@
                 </header>
             </section>
         </div>
+        <div class="col-md-12">
+            <form class="form-inline" role="form" action="/statistics/mod_grade" method="get" accept-charset="UTF-8">
+                    <div class="form-group row">
+                        <div class="col-lg-3" style="height: 33px; line-height: 33px; width: 100px; text-align: center;">评分选择</div>
+                        <div class="col-lg-5">
+                            <label class="sr-only" for="score_select"></label>
+                                <select class="form-control" id="score_select" name="score_select" style="width: 200px;">
+                                    <option value="pass">通过人群评分分布</option>
+                                    <option value="nopass">拒绝人群命中规则分布</option>
+                                </select>
+                        </div>
+                        <div class="col-lg-3" style="height: 33px; line-height: 33px; width: 100px; text-align: center;">统计依据</div>
+                        <div class="col-lg-2">
+                            <label class="sr-only" for="count_basis"></label>
+                                <select class="form-control" id="count_basis" name="count_basis" style="width: 200px;">
+                                    <option value="ass">资产包</option>
+                                    <option value="sub">用户申请时间</option>
+                                </select>
+                        </div>
+                    </div>
+                    <input type="submit" class="btn btn-success" style="margin-left: 100px;" value="搜索" >
+                </form>
+        </div>
     </div>
+    {% if option == 'sub' %}
     <div class="row">
         <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <section class="panel">
+                        <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
+                            <div class="col-lg-5">
+                                <label class="sr-only" for="service"></label>
+                                <select class="form-control" id="service" name="zichanbao" style="width: 100px">
+                                    <option value="sex">模型1</option>
+                                    <option value="age">模型2</option>
+                                    <option value="edu">模型3</option>
+                                    <option value="occ">模型4</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-7">
+                                <ul class="nav nav-tabs pull-right">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#scoreday">
+                                            日
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a data-toggle="tab" href="#scoreweek">
+                                            周
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a data-toggle="tab" href="#scoremonth">
+                                            月
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </header>
+                        <div class="panel-body">
+                            <div class="tab-content">
+                                <div id="scoreday" class="tab-pane active">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td>日期</td>
+                                            <td>AVG</td>
+                                            <td>MIN</td>
+                                            <td>P5</td>
+                                            <td>P25</td>
+                                            <td>P50</td>
+                                            <td>P75</td>
+                                            <td>P95</td>
+                                            <td>MAX</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div id="test" style="width: auto;height:400px;"></div>
+                            <script src="/static/js/echarts.min.js"></script>
+                            <script src="/static/js/macarons.js"></script>
+                            <script type="text/javascript">
+                                var myCharttest = echarts.init(document.getElementById('test'), 'macarons');
+                                var upColor = '#ec0000';
+                                var upBorderColor = '#8A0000';
+                                var downColor = '#00da3c';
+                                var downBorderColor = '#008F28';
+                                // 数据意义：开盘(open)，收盘(close)，最低(lowest)，最高(highest)
+                                var data0 = splitData([
+                                    {% for each in response_day %}
+                                        {% if each.module == 'risk_model_v1' %}
+                                        ['{{ each.time }}', {{ each.data.2 }}, {{ each.data.3 }}, {{ each.data.5 }},{{ each.data.6 }}],
+                                        {% endif %}
+                                    {% endfor %}
+                                ]);
+                                function splitData(rawData) {
+                                    var categoryData = [];
+                                    var values = [];
+                                    for (var i = 0; i < rawData.length; i++) {
+                                        categoryData.push(rawData[i].splice(0, 1)[0]);
+                                        values.push(rawData[i])
+                                    }
+                                    return {
+                                        categoryData: categoryData,
+                                        values: values
+                                    };
+                                }
+                                function calculateMA(dayCount) {
+                                    var result = [];
+                                    for (var i = 0, len = data0.values.length; i < len; i++) {
+                                        if (i < dayCount) {
+                                            result.push('-');
+                                            continue;
+                                        }
+                                        var sum = 0;
+                                        for (var j = 0; j < dayCount; j++) {
+                                            sum += data0.values[i - j][1];
+                                        }
+                                        result.push(sum / dayCount);
+                                    }
+                                    return result;
+                                }
+                                option_test = {
+                                    title: {
+                                        text: '评分分布',
+                                        left: 0
+                                    },
+                                    tooltip: {
+                                        trigger: 'axis',
+                                        axisPointer: {
+                                            type: 'cross'
+                                        }
+                                    },
+                                    grid: {
+                                        left: '10%',
+                                        right: '10%',
+                                        bottom: '15%'
+                                    },
+                                    xAxis: {
+                                        type: 'category',
+                                        data: data0.categoryData,
+                                        scale: true,
+                                        boundaryGap : false,
+                                        axisLine: {onZero: false},
+                                        splitLine: {show: false},
+                                        splitNumber: 20,
+                                        min: 'dataMin',
+                                        max: 'dataMax'
+                                    },
+                                    yAxis: {
+                                        scale: true,
+                                        splitArea: {
+                                            show: true
+                                        }
+                                    },
+                                    dataZoom: [
+                                        {
+                                            type: 'inside',
+                                            start: 50,
+                                            end: 100
+                                        },
+                                        {
+                                            show: true,
+                                            type: 'slider',
+                                            y: '90%',
+                                            start: 50,
+                                            end: 100
+                                        }
+                                    ],
+                                    series: [
+                                        {
+                                            name: '日K',
+                                            type: 'candlestick',
+                                            data: data0.values,
+                                            itemStyle: {
+                                                normal: {
+                                                    color: upColor,
+                                                    color0: downColor,
+                                                    borderColor: upBorderColor,
+                                                    borderColor0: downBorderColor
+                                                }
+                                            },
+                                            markPoint: {
+                                                label: {
+                                                    normal: {
+                                                        formatter: function (param) {
+                                                            return param != null ? Math.round(param.value) : '';
+                                                        }
+                                                    }
+                                                },
+                                                data: [
+                                                    {
+                                                        name: 'XX标点',
+                                                        coord: ['2013/5/31', 2300],
+                                                        value: 2300,
+                                                        itemStyle: {
+                                                            normal: {color: 'rgb(41,60,85)'}
+                                                        }
+                                                    },
+                                                    {
+                                                        name: 'highest value',
+                                                        type: 'max',
+                                                        valueDim: 'highest'
+                                                    },
+                                                    {
+                                                        name: 'lowest value',
+                                                        type: 'min',
+                                                        valueDim: 'lowest'
+                                                    },
+                                                    {
+                                                        name: 'average value on close',
+                                                        type: 'average',
+                                                        valueDim: 'close'
+                                                    }
+                                                ],
+                                                tooltip: {
+                                                    formatter: function (param) {
+                                                        return param.name + '<br>' + (param.data.coord || '');
+                                                    }
+                                                }
+                                            },
+                                            markLine: {
+                                                symbol: ['none', 'none'],
+                                                data: [
+                                                    [
+                                                        {
+                                                            name: 'from lowest to highest',
+                                                            type: 'min',
+                                                            valueDim: 'lowest',
+                                                            symbol: 'circle',
+                                                            symbolSize: 10,
+                                                            label: {
+                                                                normal: {show: false},
+                                                                emphasis: {show: false}
+                                                            }
+                                                        },
+                                                        {
+                                                            type: 'max',
+                                                            valueDim: 'highest',
+                                                            symbol: 'circle',
+                                                            symbolSize: 10,
+                                                            label: {
+                                                                normal: {show: false},
+                                                                emphasis: {show: false}
+                                                            }
+                                                        }
+                                                    ],
+                                                    {
+                                                        name: 'min line on close',
+                                                        type: 'min',
+                                                        valueDim: 'close'
+                                                    },
+                                                    {
+                                                        name: 'max line on close',
+                                                        type: 'max',
+                                                        valueDim: 'close'
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            name: 'MA5',
+                                            type: 'line',
+                                            data: calculateMA(5),
+                                            smooth: true,
+                                            lineStyle: {
+                                                normal: {opacity: 0.5}
+                                            }
+                                        },
+                                        {
+                                            name: 'MA10',
+                                            type: 'line',
+                                            data: calculateMA(10),
+                                            smooth: true,
+                                            lineStyle: {
+                                                normal: {opacity: 0.5}
+                                            }
+                                        },
+                                        {
+                                            name: 'MA20',
+                                            type: 'line',
+                                            data: calculateMA(20),
+                                            smooth: true,
+                                            lineStyle: {
+                                                normal: {opacity: 0.5}
+                                            }
+                                        },
+                                        {
+                                            name: 'MA30',
+                                            type: 'line',
+                                            data: calculateMA(30),
+                                            smooth: true,
+                                            lineStyle: {
+                                                normal: {opacity: 0.5}
+                                            }
+                                        },
+
+                                    ]
+                                };
+                                myCharttest.setOption(option_test);
+                            </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="row">
+        <div class="col-xs-12">
+        <div class="panel-body">
+            <form class="form-inline" role="form" action="/statistics/count_info" method="get">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="col-md-4" style="height: 34px; line-height: 34px; text-align: center;"><b>起始时间</b></div>
+                        <div class='input-group col-md-8 date' id='datetimepicker1'>
+                            <input type='text' class="form-control" name="start_time" value="{{ date.start_time }}" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="col-md-4" style="height: 34px; line-height: 34px; text-align: center;"><b>结束时间</b></div>
+                        <div class='input-group col-md-8 date' id='datetimepicker2'  name="end_time">
+                            <input type='text' class="form-control" name="end_time" value="{{ date.end_time }}" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="btn btn-success" value="搜索" >
+                    </div>
+                </div>
+            </form>
+        </div>
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -24,45 +364,44 @@
                             </a>
                         </h4>
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse">
+                    <div id="collapseOne" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <section class="panel">
                                 <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
-                                    <ul class="nav nav-tabs pull-right">
-                                        <li class="active">
-                                            <a data-toggle="tab" href="#scorehour">
-                                                时
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a data-toggle="tab" href="#scoreday">
-                                                日
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a data-toggle="tab" href="#scoreweek">
-                                                周
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a data-toggle="tab" href="#scoremonth">
-                                                月
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    <div class="col-lg-5">
+                                        <label class="sr-only" for="service"></label>
+                                        <select class="form-control" id="service" name="zichanbao" style="width: 100px">
+                                            <option value="sex">模型1</option>
+                                            <option value="age">模型2</option>
+                                            <option value="edu">模型3</option>
+                                            <option value="occ">模型4</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <ul class="nav nav-tabs pull-right">
+                                            <li class="active">
+                                                <a data-toggle="tab" href="#scoreday">
+                                                    日
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a data-toggle="tab" href="#scoreweek">
+                                                    周
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a data-toggle="tab" href="#scoremonth">
+                                                    月
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </header>
                                 <div class="panel-body">
                                     <div class="tab-content">
-                                        <div id="scorehour" class="tab-pane active">
+                                        <div id="scoreday" class="tab-pane active">
                                             <table class="table table-bordered">
                                                 <tr>
-                                                    <td rowspan="2">时间</td>
-                                                    {% for each in mod_h %}
-                                                    <td colspan="8" style="text-align: center">{{ each }}</td>
-                                                    {% endfor %}
-                                                </tr>
-                                                <tr>
-                                                    {% for each in mod_h %}
                                                     <td>AVG</td>
                                                     <td>MIN</td>
                                                     <td>P5</td>
@@ -71,134 +410,7 @@
                                                     <td>P75</td>
                                                     <td>P95</td>
                                                     <td>MAX</td>
-                                                    {% endfor %}
                                                 </tr>
-                                            {% for each in response_hour %}
-                                                <tr>
-                                                    <td>{{ each.0 }}</td>
-                                                    {% for j in each.2 %}
-                                                    <td>{{ j.0 | default_if_none:"0" }}</td>
-                                                    <td>{{ j.1 | default_if_none:"0"  }}</td>
-                                                    <td>{{ j.2 | default_if_none:"0"  }}</td>
-                                                    <td>{{ j.3 }}</td>
-                                                    <td>{{ j.4 }}</td>
-                                                    <td>{{ j.5 }}</td>
-                                                    <td>{{ j.6 }}</td>
-                                                    <td>{{ j.7 }}</td>
-                                                    {% endfor %}
-                                                </tr>
-                                            {% endfor %}
-                                            </table>
-                                        </div>
-                                        <div id="scoreday" class="tab-pane">
-                                            <table class="table table-bordered">
-                                                <tr>
-                                                    <td rowspan="2">时间</td>
-                                                    {% for each in mod_d %}
-                                                    <td colspan="8" style="text-align: center">{{ each }}</td>
-                                                    {% endfor %}
-                                                </tr>
-                                                <tr>
-                                                    {% for each in mod_d %}
-                                                    <td>AVG</td>
-                                                    <td>MIN</td>
-                                                    <td>P5</td>
-                                                    <td>P25</td>
-                                                    <td>P50</td>
-                                                    <td>P75</td>
-                                                    <td>P95</td>
-                                                    <td>MAX</td>
-                                                    {% endfor %}
-                                                </tr>
-                                            {% for each in response_day %}
-                                                <tr>
-                                                    <td>{{ each.0 }}</td>
-                                                    {% for j in each.2 %}
-                                                    <td>{{ j.0 | default_if_none:"0" }}</td>
-                                                    <td>{{ j.1 | default_if_none:"0"  }}</td>
-                                                    <td>{{ j.2 | default_if_none:"0"  }}</td>
-                                                    <td>{{ j.3 }}</td>
-                                                    <td>{{ j.4 }}</td>
-                                                    <td>{{ j.5 }}</td>
-                                                    <td>{{ j.6 }}</td>
-                                                    <td>{{ j.7 }}</td>
-                                                    {% endfor %}
-                                                </tr>
-                                            {% endfor %}
-                                            </table>
-                                        </div>
-                                        <div id="scoreweek" class="tab-pane">
-                                            <table class="table table-bordered">
-                                                <tr>
-                                                    <td rowspan="2">时间</td>
-                                                    {% for each in mod_w %}
-                                                    <td colspan="8" style="text-align: center">{{ each }}</td>
-                                                    {% endfor %}
-                                                </tr>
-                                                <tr>
-                                                    {% for each in mod_w %}
-                                                    <td>AVG</td>
-                                                    <td>MIN</td>
-                                                    <td>P5</td>
-                                                    <td>P25</td>
-                                                    <td>P50</td>
-                                                    <td>P75</td>
-                                                    <td>P95</td>
-                                                    <td>MAX</td>
-                                                    {% endfor %}
-                                                </tr>
-                                            {% for each in response_week %}
-                                                <tr>
-                                                    <td>{{ each.0 }}</td>
-                                                    {% for j in each.2 %}
-                                                    <td>{{ j.0 | default_if_none:"0" }}</td>
-                                                    <td>{{ j.1 | default_if_none:"0"  }}</td>
-                                                    <td>{{ j.2 | default_if_none:"0"  }}</td>
-                                                    <td>{{ j.3 }}</td>
-                                                    <td>{{ j.4 }}</td>
-                                                    <td>{{ j.5 }}</td>
-                                                    <td>{{ j.6 }}</td>
-                                                    <td>{{ j.7 }}</td>
-                                                    {% endfor %}
-                                                </tr>
-                                            {% endfor %}
-                                            </table>
-                                        </div>
-                                        <div id="scoremonth" class="tab-pane">
-                                            <table class="table table-bordered">
-                                                <tr>
-                                                    <td rowspan="2">时间</td>
-                                                    {% for each in mod_m %}
-                                                    <td colspan="8" style="text-align: center">{{ each }}</td>
-                                                    {% endfor %}
-                                                </tr>
-                                                <tr>
-                                                    {% for each in mod_m %}
-                                                    <td>AVG</td>
-                                                    <td>MIN</td>
-                                                    <td>P5</td>
-                                                    <td>P25</td>
-                                                    <td>P50</td>
-                                                    <td>P75</td>
-                                                    <td>P95</td>
-                                                    <td>MAX</td>
-                                                    {% endfor %}
-                                                </tr>
-                                            {% for each in response_mon %}
-                                                <tr>
-                                                    <td>{{ each.0 }}</td>
-                                                    {% for j in each.2 %}
-                                                    <td>{{ j.0 | default_if_none:"0" }}</td>
-                                                    <td>{{ j.1 | default_if_none:"0"  }}</td>
-                                                    <td>{{ j.2 | default_if_none:"0"  }}</td>
-                                                    <td>{{ j.3 }}</td>
-                                                    <td>{{ j.4 }}</td>
-                                                    <td>{{ j.5 }}</td>
-                                                    <td>{{ j.6 }}</td>
-                                                    <td>{{ j.7 }}</td>
-                                                    {% endfor %}
-                                                </tr>
-                                            {% endfor %}
                                             </table>
                                         </div>
                                     </div>
@@ -218,7 +430,7 @@
                     <div id="collapseTwo" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <section class="panel">
-                                <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
+                                <header class="panel-heading tab-bg-dark-navy-blue tab-right">
                                     <ul class="nav nav-tabs pull-right">
                                         <li class="">
                                             <a data-toggle="tab" class="reload" href="#pichour">
@@ -244,403 +456,229 @@
                                 </header>
                                 <div class="panel-body">
                                     <div class="tab-content">
-                                        <div id="pichour" class="tab-pane">
-                                            <div id="mainh" style="width: auto;height:400px;"></div>
-                                                <script src="/static/js/echarts.min.js"></script>
-                                                <script src="/static/js/macarons.js"></script>
-                                                <script type="text/javascript">
-                                                    var myCharth = echarts.init(document.getElementById('mainh'), 'macarons');
-                                                    optionh = {
-                                                        tooltip: {
-                                                            trigger: 'axis',
-                                                            axisPointer: {
-                                                                type: 'cross',
-                                                                crossStyle: {
-                                                                    color: '#999'
-                                                                }
-                                                            }
-                                                        },
-                                                        toolbox: {
-                                                            feature: {
-                                                                dataView: {show: true, readOnly: false},
-                                                                magicType: {show: true, type: ['line', 'bar']},
-                                                                restore: {show: true},
-                                                                saveAsImage: {show: true}
-                                                            }
-                                                        },
-                                                        legend: {
-                                                            data:['申请量','通过量','通过率']
-                                                        },
-                                                        xAxis: [
-                                                            {
-                                                                type: 'category',
-                                                                data: [
-                                                                    {% for eachh in res_hour %}
-                                                                        '{{ eachh.0 }}',
-                                                                    {% endfor %}
-                                                                ],
-                                                                axisPointer: {
-                                                                    type: 'shadow'
-                                                                }
-                                                            }
-                                                        ],
-                                                        yAxis: [
-                                                            {
-                                                                type: 'value',
-                                                                name: '人次',
-                                                                axisLabel: {
-                                                                    formatter: '{value}'
-                                                                }
-                                                            },
-                                                            {
-                                                                type: 'value',
-                                                                name: '通过率',
-                                                                min: 0,
-                                                                max: 1,
-                                                                axisLabel: {
-                                                                    formatter: '{value}'
-                                                                }
-                                                            }
-                                                        ],
-                                                        series: [
-                                                            {
-                                                                name:'申请量',
-                                                                type:'bar',
-                                                                data:[
-                                                                    {% for eachh in res_hour %}
-                                                                        '{{ eachh.1 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            },
-                                                            {
-                                                                name:'通过量',
-                                                                type:'bar',
-                                                                data:[
-                                                                    {% for eachh in res_hour %}
-                                                                        '{{ eachh.2 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            },
-                                                            {
-                                                                name:'通过率',
-                                                                type:'line',
-                                                                yAxisIndex: 1,
-                                                                data:[
-                                                                    {% for eachh in res_hour %}
-                                                                        '{{ eachh.3 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            }
-                                                        ]
+                                        <div id="test" style="width: auto;height:400px;"></div>
+                                            <script src="/static/js/echarts.min.js"></script>
+                                            <script src="/static/js/macarons.js"></script>
+                                            <script type="text/javascript">
+                                                var myCharttest = echarts.init(document.getElementById('test'), 'macarons');
+                                                var upColor = '#ec0000';
+                                                var upBorderColor = '#8A0000';
+                                                var downColor = '#00da3c';
+                                                var downBorderColor = '#008F28';
+                                                // 数据意义：开盘(open)，收盘(close)，最低(lowest)，最高(highest)
+                                                var data0 = splitData([
+                                                    {% for each in response_day %}
+                                                        {% if each.module == 'risk_model_v1' %}
+                                                        ['{{ each.time }}', {{ each.data.2 }}, {{ each.data.3 }}, {{ each.data.5 }},{{ each.data.6 }}],
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                ]);
+                                                function splitData(rawData) {
+                                                    var categoryData = [];
+                                                    var values = [];
+                                                    for (var i = 0; i < rawData.length; i++) {
+                                                        categoryData.push(rawData[i].splice(0, 1)[0]);
+                                                        values.push(rawData[i])
+                                                    }
+                                                    return {
+                                                        categoryData: categoryData,
+                                                        values: values
                                                     };
-                                                    myCharth.setOption(optionh);
-                                                </script>
-                                        </div>
-                                        <div id="picday" class="tab-pane active">
-                                            <div id="maind" style="width: auto;height:400px;"></div>
-                                                <script src="/static/js/echarts.min.js"></script>
-                                                <script src="/static/js/macarons.js"></script>
-                                                <script type="text/javascript">
-                                                    var myChartd = echarts.init(document.getElementById('maind'), 'macarons');
-                                                    optiond = {
-                                                        tooltip: {
-                                                            trigger: 'axis',
-                                                            axisPointer: {
-                                                                type: 'cross',
-                                                                crossStyle: {
-                                                                    color: '#999'
+                                                }
+                                                function calculateMA(dayCount) {
+                                                    var result = [];
+                                                    for (var i = 0, len = data0.values.length; i < len; i++) {
+                                                        if (i < dayCount) {
+                                                            result.push('-');
+                                                            continue;
+                                                        }
+                                                        var sum = 0;
+                                                        for (var j = 0; j < dayCount; j++) {
+                                                            sum += data0.values[i - j][1];
+                                                        }
+                                                        result.push(sum / dayCount);
+                                                    }
+                                                    return result;
+                                                }
+                                                option_test = {
+                                                    tooltip: {
+                                                        trigger: 'axis',
+                                                        axisPointer: {
+                                                            type: 'cross'
+                                                        }
+                                                    },
+                                                    legend: {
+                                                        data: ['P5', 'P25', 'P75', 'P95']
+                                                    },
+                                                    grid: {
+                                                        left: '10%',
+                                                        right: '10%',
+                                                        bottom: '15%'
+                                                    },
+                                                    xAxis: {
+                                                        type: 'category',
+                                                        data: data0.categoryData,
+                                                        scale: true,
+                                                        boundaryGap : false,
+                                                        axisLine: {onZero: false},
+                                                        splitLine: {show: false},
+                                                        splitNumber: 20,
+                                                        min: 'dataMin',
+                                                        max: 'dataMax'
+                                                    },
+                                                    yAxis: {
+                                                        scale: true,
+                                                        splitArea: {
+                                                            show: true
+                                                        }
+                                                    },
+                                                    dataZoom: [
+                                                        {
+                                                            type: 'inside',
+                                                            start: 50,
+                                                            end: 100
+                                                        },
+                                                        {
+                                                            show: true,
+                                                            type: 'slider',
+                                                            y: '90%',
+                                                            start: 50,
+                                                            end: 100
+                                                        }
+                                                    ],
+                                                    series: [
+                                                        {
+                                                            name: '日K',
+                                                            type: 'candlestick',
+                                                            data: data0.values,
+                                                            itemStyle: {
+                                                                normal: {
+                                                                    color: upColor,
+                                                                    color0: downColor,
+                                                                    borderColor: upBorderColor,
+                                                                    borderColor0: downBorderColor
                                                                 }
-                                                            }
-                                                        },
-                                                        toolbox: {
-                                                            feature: {
-                                                                dataView: {show: true, readOnly: false},
-                                                                magicType: {show: true, type: ['line', 'bar']},
-                                                                restore: {show: true},
-                                                                saveAsImage: {show: true}
-                                                            }
-                                                        },
-                                                        legend: {
-                                                            data:['信用分低于阈值','欺诈分高于阈值','年龄不符合要求']
-                                                        },
-                                                        xAxis: [
-                                                            {
-                                                                type: 'category',
+                                                            },
+                                                            markPoint: {
+                                                                label: {
+                                                                    normal: {
+                                                                        formatter: function (param) {
+                                                                            return param != null ? Math.round(param.value) : '';
+                                                                        }
+                                                                    }
+                                                                },
                                                                 data: [
-                                                                    {% for eachh in res_day2 %}
-                                                                        '{{ eachh.2 }}',
-                                                                    {% endfor %}
+                                                                    {
+                                                                        name: 'XX标点',
+                                                                        coord: ['2013/5/31', 2300],
+                                                                        value: 2300,
+                                                                        itemStyle: {
+                                                                            normal: {color: 'rgb(41,60,85)'}
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        name: 'highest value',
+                                                                        type: 'max',
+                                                                        valueDim: 'highest'
+                                                                    },
+                                                                    {
+                                                                        name: 'lowest value',
+                                                                        type: 'min',
+                                                                        valueDim: 'lowest'
+                                                                    },
+                                                                    {
+                                                                        name: 'average value on close',
+                                                                        type: 'average',
+                                                                        valueDim: 'close'
+                                                                    }
                                                                 ],
-                                                                axisPointer: {
-                                                                    type: 'shadow'
-                                                                }
-                                                            }
-                                                        ],
-                                                        yAxis: [
-                                                            {
-                                                                type: 'value',
-                                                                name: '命中量',
-                                                                axisLabel: {
-                                                                    formatter: '{value}'
+                                                                tooltip: {
+                                                                    formatter: function (param) {
+                                                                        return param.name + '<br>' + (param.data.coord || '');
+                                                                    }
                                                                 }
                                                             },
-                                                            {
-                                                                type: 'value',
-                                                                name: '命中率',
-                                                                min: 0,
-                                                                max: 0.3,
-                                                                axisLabel: {
-                                                                    formatter: '{value}'
-                                                                }
-                                                            }
-                                                        ],
-                                                        series: [
-                                                            {
-                                                                name:'信用分低于阈值',
-                                                                type:'bar',
-                                                                data:[
-                                                                    {% for each in res_day2 %}
-                                                                        '{{ each.0.0 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            },
-                                                            {
-                                                                name:'信用分低于阈值',
-                                                                type:'line',
-                                                                yAxisIndex: 1,
-                                                                data:[
-                                                                    {% for each in res_day2 %}
-                                                                        '{{ each.1.0 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            },
-                                                            {
-                                                                name:'欺诈分高于阈值',
-                                                                type:'bar',
-                                                                data:[
-                                                                    {% for each in res_day2 %}
-                                                                        '{{ each.0.1 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            },
-                                                            {
-                                                                name:'欺诈分高于阈值',
-                                                                type:'line',
-                                                                yAxisIndex: 1,
-                                                                data:[
-                                                                    {% for each in res_day2 %}
-                                                                        '{{ each.1.1 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            },
-                                                            {
-                                                                name:'年龄不符合要求',
-                                                                type:'bar',
-                                                                data:[
-                                                                    {% for each in res_day2 %}
-                                                                        '{{ each.0.2 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            },
-                                                            {
-                                                                name:'年龄不符合要求',
-                                                                type:'line',
-                                                                yAxisIndex: 1,
-                                                                data:[
-                                                                    {% for each in res_day2 %}
-                                                                        '{{ each.1.2 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            }
-                                                        ]
-                                                    };
-                                                    myChartd.setOption(optiond);
-                                                </script>
-                                        </div>
-                                        <div id="picweek" class="tab-pane">
-                                            <div id="mainh" style="width: auto;height:400px;"></div>
-                                                <script src="/static/js/echarts.min.js"></script>
-                                                <script src="/static/js/macarons.js"></script>
-                                                <script type="text/javascript">
-                                                    var myCharth = echarts.init(document.getElementById('mainh'), 'macarons');
-                                                    optionh = {
-                                                        tooltip: {
-                                                            trigger: 'axis',
-                                                            axisPointer: {
-                                                                type: 'cross',
-                                                                crossStyle: {
-                                                                    color: '#999'
-                                                                }
-                                                            }
-                                                        },
-                                                        toolbox: {
-                                                            feature: {
-                                                                dataView: {show: true, readOnly: false},
-                                                                magicType: {show: true, type: ['line', 'bar']},
-                                                                restore: {show: true},
-                                                                saveAsImage: {show: true}
-                                                            }
-                                                        },
-                                                        legend: {
-                                                            data:['申请量','通过量','通过率']
-                                                        },
-                                                        xAxis: [
-                                                            {
-                                                                type: 'category',
+                                                            markLine: {
+                                                                symbol: ['none', 'none'],
                                                                 data: [
-                                                                    {% for eachh in res_hour %}
-                                                                        '{{ eachh.0 }}',
-                                                                    {% endfor %}
-                                                                ],
-                                                                axisPointer: {
-                                                                    type: 'shadow'
-                                                                }
-                                                            }
-                                                        ],
-                                                        yAxis: [
-                                                            {
-                                                                type: 'value',
-                                                                name: '人次',
-                                                                axisLabel: {
-                                                                    formatter: '{value}'
-                                                                }
-                                                            },
-                                                            {
-                                                                type: 'value',
-                                                                name: '通过率',
-                                                                min: 0,
-                                                                max: 1,
-                                                                axisLabel: {
-                                                                    formatter: '{value}'
-                                                                }
-                                                            }
-                                                        ],
-                                                        series: [
-                                                            {
-                                                                name:'申请量',
-                                                                type:'bar',
-                                                                data:[
-                                                                    {% for eachh in res_hour %}
-                                                                        '{{ eachh.1 }}',
-                                                                    {% endfor %}
+                                                                    [
+                                                                        {
+                                                                            name: 'from lowest to highest',
+                                                                            type: 'min',
+                                                                            valueDim: 'lowest',
+                                                                            symbol: 'circle',
+                                                                            symbolSize: 10,
+                                                                            label: {
+                                                                                normal: {show: false},
+                                                                                emphasis: {show: false}
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            type: 'max',
+                                                                            valueDim: 'highest',
+                                                                            symbol: 'circle',
+                                                                            symbolSize: 10,
+                                                                            label: {
+                                                                                normal: {show: false},
+                                                                                emphasis: {show: false}
+                                                                            }
+                                                                        }
+                                                                    ],
+                                                                    {
+                                                                        name: 'min line on close',
+                                                                        type: 'min',
+                                                                        valueDim: 'close'
+                                                                    },
+                                                                    {
+                                                                        name: 'max line on close',
+                                                                        type: 'max',
+                                                                        valueDim: 'close'
+                                                                    }
                                                                 ]
-                                                            },
-                                                            {
-                                                                name:'通过量',
-                                                                type:'bar',
-                                                                data:[
-                                                                    {% for eachh in res_hour %}
-                                                                        '{{ eachh.2 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            },
-                                                            {
-                                                                name:'通过率',
-                                                                type:'line',
-                                                                yAxisIndex: 1,
-                                                                data:[
-                                                                    {% for eachh in res_hour %}
-                                                                        '{{ eachh.3 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            }
-                                                        ]
-                                                    };
-                                                    myCharth.setOption(optionh);
-                                                </script>
-                                        </div>
-                                        <div id="picmonth" class="tab-pane">
-                                            <div id="mainh" style="width: auto;height:400px;"></div>
-                                                <script src="/static/js/echarts.min.js"></script>
-                                                <script src="/static/js/macarons.js"></script>
-                                                <script type="text/javascript">
-                                                    var myCharth = echarts.init(document.getElementById('mainh'), 'macarons');
-                                                    optionh = {
-                                                        tooltip: {
-                                                            trigger: 'axis',
-                                                            axisPointer: {
-                                                                type: 'cross',
-                                                                crossStyle: {
-                                                                    color: '#999'
-                                                                }
                                                             }
                                                         },
-                                                        toolbox: {
-                                                            feature: {
-                                                                dataView: {show: true, readOnly: false},
-                                                                magicType: {show: true, type: ['line', 'bar']},
-                                                                restore: {show: true},
-                                                                saveAsImage: {show: true}
+                                                        {
+                                                            name: 'MA5',
+                                                            type: 'line',
+                                                            data: calculateMA(5),
+                                                            smooth: true,
+                                                            lineStyle: {
+                                                                normal: {opacity: 0.5}
                                                             }
                                                         },
-                                                        legend: {
-                                                            data:['申请量','通过量','通过率']
+                                                        {
+                                                            name: 'MA10',
+                                                            type: 'line',
+                                                            data: calculateMA(10),
+                                                            smooth: true,
+                                                            lineStyle: {
+                                                                normal: {opacity: 0.5}
+                                                            }
                                                         },
-                                                        xAxis: [
-                                                            {
-                                                                type: 'category',
-                                                                data: [
-                                                                    {% for eachh in res_hour %}
-                                                                        '{{ eachh.0 }}',
-                                                                    {% endfor %}
-                                                                ],
-                                                                axisPointer: {
-                                                                    type: 'shadow'
-                                                                }
+                                                        {
+                                                            name: 'MA20',
+                                                            type: 'line',
+                                                            data: calculateMA(20),
+                                                            smooth: true,
+                                                            lineStyle: {
+                                                                normal: {opacity: 0.5}
                                                             }
-                                                        ],
-                                                        yAxis: [
-                                                            {
-                                                                type: 'value',
-                                                                name: '人次',
-                                                                axisLabel: {
-                                                                    formatter: '{value}'
-                                                                }
-                                                            },
-                                                            {
-                                                                type: 'value',
-                                                                name: '通过率',
-                                                                min: 0,
-                                                                max: 1,
-                                                                axisLabel: {
-                                                                    formatter: '{value}'
-                                                                }
+                                                        },
+                                                        {
+                                                            name: 'MA30',
+                                                            type: 'line',
+                                                            data: calculateMA(30),
+                                                            smooth: true,
+                                                            lineStyle: {
+                                                                normal: {opacity: 0.5}
                                                             }
-                                                        ],
-                                                        series: [
-                                                            {
-                                                                name:'申请量',
-                                                                type:'bar',
-                                                                data:[
-                                                                    {% for eachh in res_hour %}
-                                                                        '{{ eachh.1 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            },
-                                                            {
-                                                                name:'通过量',
-                                                                type:'bar',
-                                                                data:[
-                                                                    {% for eachh in res_hour %}
-                                                                        '{{ eachh.2 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            },
-                                                            {
-                                                                name:'通过率',
-                                                                type:'line',
-                                                                yAxisIndex: 1,
-                                                                data:[
-                                                                    {% for eachh in res_hour %}
-                                                                        '{{ eachh.3 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            }
-                                                        ]
-                                                    };
-                                                    myCharth.setOption(optionh);
-                                                </script>
-                                        </div>
+                                                        },
+
+                                                    ]
+                                                };
+
+                                                myCharttest.setOption(option_test);
+                                            </script>
                                     </div>
                                 </div>
                             </section>
@@ -650,4 +688,5 @@
             </div>
         </div>
     </div>
+    {% endif %}
 {% endblock %}

@@ -12,6 +12,7 @@ class UserInfoForStatistics(models.Model):
     idcard = models.CharField(max_length=64, verbose_name='身份证号')
     phone = models.CharField(max_length=64, verbose_name='手机号')
     sex = models.CharField(max_length=8, verbose_name='性别')
+    source = models.CharField(max_length=64, default='', validators='资产包标签')
     native_province = models.CharField(max_length=128, default='', validators='籍贯省')
     native_city = models.CharField(max_length=128, default='', validators='籍贯市')
     native_district = models.CharField(max_length=128, default='', validators='籍贯区')
@@ -26,8 +27,8 @@ class UserInfoForStatistics(models.Model):
     application_city = models.CharField(max_length=128, default='', validators='申请地市')
     application_district = models.CharField(max_length=128, default='', validators='申请地区')
     application_address = models.CharField(max_length=256, default='', verbose_name='申请地详细地址')
-    application_time = models.DateTimeField(db_index=True, verbose_name='申请时间')
-    create_time = models.DateTimeField(auto_now_add=True)
+    application_time = models.IntegerField()
+    create_time = models.IntegerField()
 
 
 class ModelFeatureRecord(models.Model):
