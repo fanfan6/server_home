@@ -10200,3 +10200,70 @@ Traceback (most recent call last):
   File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/utils/datastructures.py", line 85, in __getitem__
     raise MultiValueDictKeyError(repr(key))
 MultiValueDictKeyError: "'option'"
+2018-02-09 15:59:15,908 [CASdjango.request] [Thread-5] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /test4/add/
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/test4/views.py", line 12, in add
+    print json.loads(request.POST)
+  File "/home/xinyu/.pyenv/versions/2.7.14/lib/python2.7/json/__init__.py", line 339, in loads
+    return _default_decoder.decode(s)
+  File "/home/xinyu/.pyenv/versions/2.7.14/lib/python2.7/json/decoder.py", line 364, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-02-09 15:59:43,269 [CASdjango.request] [Thread-5] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /test4/add/
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/test4/views.py", line 12, in add
+    print json.loads(request.POST)
+  File "/home/xinyu/.pyenv/versions/2.7.14/lib/python2.7/json/__init__.py", line 339, in loads
+    return _default_decoder.decode(s)
+  File "/home/xinyu/.pyenv/versions/2.7.14/lib/python2.7/json/decoder.py", line 364, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+2018-02-09 18:04:45,539 [CASdjango.request] [Thread-1] ERROR [/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py--line:124] Internal Server Error: /statistics/mod_grade
+Traceback (most recent call last):
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xinyu/PycharmProjects/server_home/statistics/views.py", line 322, in mod_grade
+    'res_test': aa})
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/home/xinyu/.pyenv/versions/tianqi_server/lib/python2.7/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Invalid block tag on line 403: 'endfor', expected 'endblock'. Did you forget to register or load this tag?

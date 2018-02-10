@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^admin', admin.site.urls),
     url(r'^info/', include('report_info.urls')),
     url(r'^count/', include('count.urls')),
+    url(r'^test4/', include('test4.urls')),
     url(r'^statistics/', include('statistics.urls')),
     url(r'', include('login.urls')),
 ]

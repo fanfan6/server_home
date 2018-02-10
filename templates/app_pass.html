@@ -12,562 +12,356 @@
                 </header>
             </section>
         </div>
-        <div class="col-md-12">
-            <form class="form-inline" role="form" action="/statistics/app_pass" method="get" accept-charset="UTF-8">
-                <div class="form-group row">
-                    <div class="col-lg-3" style="height: 33px; line-height: 33px; width: 100px; text-align: center;">统计依据</div>
-                    <div class="col-lg-4">
-                        <label class="sr-only" for="option"></label>
-                            <select class="form-control" id="option" name="option" style="width: 200px;">
-                                <option value="sub">用户申请时间</option>
-                                <option value="ass">资产包</option>
+    </div>
+    <div class="panel panel-default col-md-12">
+        <div class="panel-body">
+            <section class="panel">
+                <header class="panel-heading tab-bg-dark-navy-blue tab-right row">
+                    <div class="col-lg-6">
+                        <form class="form-inline" role="form" action="/statistics/static_info?option=sex&" method="get" accept-charset="UTF-8">
+                            <label class="sr-only" for="service"></label>
+                            <select class="form-control" id="service" name="zichanbao" style="width: 100px">
+                                <option value="all">ALL</option>
+                                <option value="assA">资产包A</option>
+                                <option value="assB">资产包B</option>
+                                <option value="assC">资产包C</option>
                             </select>
+                            <input type="submit" class="btn btn-success" value="切换" >
+                        </form>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul class="nav nav-tabs pull-right">
+                            <li class="active">
+                                <a data-toggle="tab" href="#scoreday">
+                                    日
+                                </a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab" href="#scoreweek">
+                                    周
+                                </a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab" href="#scoremonth">
+                                    月
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </header>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div id="scoreday" class="tab-pane active">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td>时间</td>
+                                    <td>申请量</td>
+                                    <td>通过量</td>
+                                    <td>通过率</td>
+                                </tr>
+                                {% for eachh in res_day %}
+                                <tr>
+                                    <td>{{ eachh.0 }}</td>
+                                    <td>{{ eachh.1 }}</td>
+                                    <td>{{ eachh.2 }}</td>
+                                    <td>{{ eachh.3 }}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
                     </div>
                 </div>
-                <input type="submit" class="btn btn-success" value="搜索" >
-            </form>
+            </section>
         </div>
-    {% if option == 'sub' %}
-        <div class="col-xs-12">
-            <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                通过量 表格 （点击隐藏）
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <section class="panel">
-                                <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
-                                    <ul class="nav nav-tabs pull-right">
-                                        <li class="active">
-                                            <a data-toggle="tab" href="#passhour">
-                                                时
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a data-toggle="tab" href="#passday">
-                                                日
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a data-toggle="tab" href="#passweek">
-                                                周
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a data-toggle="tab" href="#passmonth">
-                                                月
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </header>
-                                <div class="panel-body">
-                                    <div class="tab-content">
-                                        <div id="passhour" class="tab-pane active">
-                                            <table class="table table-hover in">
-                                                <tr>
-                                                    <td>时间</td>
-                                                    <td>申请量</td>
-                                                    <td>通过量</td>
-                                                    <td>通过率</td>
-                                                </tr>
-                                                {% for eachh in res_hour %}
-                                                <tr>
-                                                    <td>{{ eachh.0 }}</td>
-                                                    <td>{{ eachh.1 }}</td>
-                                                    <td>{{ eachh.2 }}</td>
-                                                    <td>{{ eachh.3 }}</td>
-                                                </tr>
-                                                {% endfor %}
-                                            </table>
-                                        </div>
-                                        <div id="passday" class="tab-pane">
-                                            <table class="table table-hover">
-                                                <tr>
-                                                    <td>时间</td>
-                                                    <td>申请量</td>
-                                                    <td>通过量</td>
-                                                    <td>通过率</td>
-                                                </tr>
-                                                {% for eachd in res_day %}
-                                                <tr>
-                                                    <td>{{ eachd.0 }}</td>
-                                                    <td>{{ eachd.1 }}</td>
-                                                    <td>{{ eachd.2 }}</td>
-                                                    <td>{{ eachd.3 }}</td>
-                                                </tr>
-                                                {% endfor %}
-                                            </table>
-                                        </div>
-                                        <div id="passweek" class="tab-pane">
-                                            <table class="table table-hover">
-                                                <tr>
-                                                    <td>时间</td>
-                                                    <td>申请量</td>
-                                                    <td>通过量</td>
-                                                    <td>通过率</td>
-                                                </tr>
-                                                {% for eachw in res_week %}
-                                                <tr>
-                                                    <td>{{ eachw.0 }}</td>
-                                                    <td>{{ eachw.1 }}</td>
-                                                    <td>{{ eachw.2 }}</td>
-                                                    <td>{{ eachw.3 }}</td>
-                                                </tr>
-                                                {% endfor %}
-                                            </table>
-                                        </div>
-                                        <div id="passmonth" class="tab-pane">
-                                            <table class="table table-hover">
-                                                <tr>
-                                                    <td>时间</td>
-                                                    <td>申请量</td>
-                                                    <td>通过量</td>
-                                                    <td>通过率</td>
-                                                </tr>
-                                                {% for eachm in res_mon %}
-                                                <tr>
-                                                    <td>{{ eachm.0 }}</td>
-                                                    <td>{{ eachm.1 }}</td>
-                                                    <td>{{ eachm.2 }}</td>
-                                                    <td>{{ eachm.3 }}</td>
-                                                </tr>
-                                                {% endfor %}
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
+    </div>
+    <div class="panel panel-default col-md-12">
+        <div class="panel-body">
+            <section class="panel">
+                <div id="mainh" style="width: auto;height:400px;"></div>
+                    <script src="/static/js/echarts.min.js"></script>
+                    <script src="/static/js/macarons.js"></script>
+                    <script type="text/javascript">
+                        var myCharth = echarts.init(document.getElementById('mainh'), 'macarons');
+                        optionh = {
+                            tooltip: {
+                                trigger: 'axis',
+                                axisPointer: {
+                                    type: 'cross',
+                                    crossStyle: {
+                                        color: '#999'
+                                    }
+                                }
+                            },
+                            toolbox: {
+                                feature: {
+                                    dataView: {show: true, readOnly: false},
+                                    magicType: {show: true, type: ['line', 'bar']},
+                                    restore: {show: true},
+                                    saveAsImage: {show: true}
+                                }
+                            },
+                            legend: {
+                                data:['申请量','通过量','通过率']
+                            },
+                            xAxis: [
+                                {
+                                    type: 'category',
+                                    data: [
+                                        {% for eachh in res_day %}
+                                            '{{ eachh.0 }}',
+                                        {% endfor %}
+                                    ],
+                                    axisPointer: {
+                                        type: 'shadow'
+                                    }
+                                }
+                            ],
+                            yAxis: [
+                                {
+                                    type: 'value',
+                                    name: '人次',
+                                    axisLabel: {
+                                        formatter: '{value}'
+                                    }
+                                },
+                                {
+                                    type: 'value',
+                                    name: '通过率 %',
+                                    axisLabel: {
+                                        formatter: '{value}'
+                                    }
+                                }
+                            ],
+                            series: [
+                                {
+                                    name:'申请量',
+                                    type:'bar',
+                                    data:[
+                                        {% for eachh in res_day %}
+                                            '{{ eachh.1 }}',
+                                        {% endfor %}
+                                    ]
+                                },
+                                {
+                                    name:'通过量',
+                                    type:'bar',
+                                    data:[
+                                        {% for eachh in res_day %}
+                                            '{{ eachh.2 }}',
+                                        {% endfor %}
+                                    ]
+                                },
+                                {
+                                    name:'通过率',
+                                    type:'line',
+                                    yAxisIndex: 1,
+                                    data:[
+                                        {% for eachh in res_day %}
+                                            '{{ eachh.3 }}',
+                                        {% endfor %}
+                                    ]
+                                }
+                            ]
+                        };
+                        myCharth.setOption(optionh);
+                    </script>
+            </section>
+        </div>
+    </div>
+    <div class="panel-body col-xs-12">
+        <form class="form-inline" role="form" action="/statistics/count_info" method="get">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="col-md-4" style="height: 34px; line-height: 34px; text-align: center;"><b>起始时间</b></div>
+                    <div class='input-group col-md-8 date' id='datetimepicker1'>
+                        <input type='text' class="form-control" name="start_time" value="{{ date.start_time }}" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                通过量 图表 （点击隐藏）
-                            </a>
-                        </h4>
+                <div class="col-md-4">
+                    <div class="col-md-4" style="height: 34px; line-height: 34px; text-align: center;"><b>结束时间</b></div>
+                    <div class='input-group col-md-8 date' id='datetimepicker2'  name="end_time">
+                        <input type='text' class="form-control" name="end_time" value="{{ date.end_time }}" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
                     </div>
-                    <div id="collapseTwo" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <section class="panel">
-                                <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
-                                    <ul class="nav nav-tabs pull-right">
-                                        <li class="">
-                                            <a data-toggle="tab" class="reload" href="#pichour">
-                                                时
-                                            </a>
-                                        </li>
-                                        <li class="active">
-                                            <a data-toggle="tab" class="reload" href="#picday">
-                                                日
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a data-toggle="tab" class="reload" href="#picweek">
-                                                周
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a data-toggle="tab" class="reload" href="#picmonth">
-                                                月
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </header>
-                                <div class="panel-body">
-                                    <div class="tab-content">
-                                        {% block pic_info %}
-                                        <div id="picday" class="tab-pane active">
-                                            <div id="mainh" style="width: auto;height:400px;"></div>
-                                                <script src="/static/js/echarts.min.js"></script>
-                                                <script src="/static/js/macarons.js"></script>
-                                                <script type="text/javascript">
-                                                    var myCharth = echarts.init(document.getElementById('mainh'), 'macarons');
-                                                    optionh = {
-                                                        tooltip: {
-                                                            trigger: 'axis',
-                                                            axisPointer: {
-                                                                type: 'cross',
-                                                                crossStyle: {
-                                                                    color: '#999'
-                                                                }
-                                                            }
-                                                        },
-                                                        toolbox: {
-                                                            feature: {
-                                                                dataView: {show: true, readOnly: false},
-                                                                magicType: {show: true, type: ['line', 'bar']},
-                                                                restore: {show: true},
-                                                                saveAsImage: {show: true}
-                                                            }
-                                                        },
-                                                        legend: {
-                                                            data:['申请量','通过量','通过率']
-                                                        },
-                                                        xAxis: [
-                                                            {
-                                                                type: 'category',
-                                                                data: [
-                                                                    {% for eachh in res_day %}
-                                                                        '{{ eachh.0 }}',
-                                                                    {% endfor %}
-                                                                ],
-                                                                axisPointer: {
-                                                                    type: 'shadow'
-                                                                }
-                                                            }
-                                                        ],
-                                                        yAxis: [
-                                                            {
-                                                                type: 'value',
-                                                                name: '人次',
-                                                                axisLabel: {
-                                                                    formatter: '{value}'
-                                                                }
-                                                            },
-                                                            {
-                                                                type: 'value',
-                                                                name: '通过率 %',
-                                                                axisLabel: {
-                                                                    formatter: '{value}'
-                                                                }
-                                                            }
-                                                        ],
-                                                        series: [
-                                                            {
-                                                                name:'申请量',
-                                                                type:'bar',
-                                                                data:[
-                                                                    {% for eachh in res_day %}
-                                                                        '{{ eachh.1 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            },
-                                                            {
-                                                                name:'通过量',
-                                                                type:'bar',
-                                                                data:[
-                                                                    {% for eachh in res_day %}
-                                                                        '{{ eachh.2 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            },
-                                                            {
-                                                                name:'通过率',
-                                                                type:'line',
-                                                                yAxisIndex: 1,
-                                                                data:[
-                                                                    {% for eachh in res_day %}
-                                                                        '{{ eachh.3 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            }
-                                                        ]
-                                                    };
-                                                    myCharth.setOption(optionh);
-                                                </script>
-                                        </div>
-                                        {% endblock %}
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" class="btn btn-success" value="搜索" >
                 </div>
             </div>
-        </div>
-    {% else %}
-        <div class="col-xs-12">
-            <div class="panel-body">
-                <form class="form-inline" role="form" action="/statistics/count_info" method="get">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="col-md-4" style="height: 34px; line-height: 34px; text-align: center;"><b>起始时间</b></div>
-                            <div class='input-group col-md-8 date' id='datetimepicker1'>
-                                <input type='text' class="form-control" name="start_time" value="{{ date.start_time }}" />
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="col-md-4" style="height: 34px; line-height: 34px; text-align: center;"><b>结束时间</b></div>
-                            <div class='input-group col-md-8 date' id='datetimepicker2'  name="end_time">
-                                <input type='text' class="form-control" name="end_time" value="{{ date.end_time }}" />
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <input type="submit" class="btn btn-success" value="搜索" >
-                        </div>
+        </form>
+    </div>
+    <div class="panel panel-default col-md-12">
+        <div class="panel-body">
+            <section class="panel">
+                <header class="panel-heading tab-bg-dark-navy-blue tab-right row">
+                    <div class="col-lg-4">
+                        <label class="sr-only" for="service">资产包A</label>
+                        <select class="form-control" id="service" name="zichanbao" style="width: 100px">
+                            <option value="sex">资产包1</option>
+                            <option value="age">资产包2</option>
+                            <option value="edu">资产包3</option>
+                            <option value="occ">资产包4</option>
+                        </select>
                     </div>
-                </form>
-            </div>
-            <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                通过量 表格 （点击隐藏）
+                    <div class="col-lg-4">
+                        <label class="sr-only" for="service">资产包A</label>
+                        <select class="form-control" id="service" name="zichanbao" style="width: 100px">
+                            <option value="sex">资产包1</option>
+                            <option value="age" selected="selected">资产包2</option>
+                            <option value="edu">资产包3</option>
+                            <option value="occ">资产包4</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4">
+                        <ul class="nav nav-tabs pull-right">
+                        <li class="active">
+                            <a data-toggle="tab" href="#scoreday">
+                                日
                             </a>
-                        </h4>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" href="#scoreweek">
+                                周
+                            </a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" href="#scoremonth">
+                                月
+                            </a>
+                        </li>
+                    </ul>
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <section class="panel">
-                                <header class="panel-heading tab-bg-dark-navy-blue tab-right row">
-                                    <div class="col-lg-5">
-                                        <label class="sr-only" for="service">资产包A</label>
-                                        <select class="form-control" id="service" name="zichanbao" style="width: 100px">
-                                            <option value="sex">资产包1</option>
-                                            <option value="age">资产包2</option>
-                                            <option value="edu">资产包3</option>
-                                            <option value="occ">资产包4</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <ul class="nav nav-tabs pull-right">
-                                            <li class="active">
-                                                <a data-toggle="tab" href="#scoreday">
-                                                    日
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a data-toggle="tab" href="#scoreweek">
-                                                    周
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a data-toggle="tab" href="#scoremonth">
-                                                    月
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </header>
-                                <div class="panel-body">
-                                    <div class="tab-content">
-                                        <div id="passhour" class="tab-pane active">
-                                            <table class="table table-hover in">
-                                                <tr>
-                                                    <td>时间</td>
-                                                    <td>申请量</td>
-                                                    <td>通过量</td>
-                                                    <td>通过率</td>
-                                                </tr>
-                                                {% for eachh in res_hour %}
-                                                <tr>
-                                                    <td>{{ eachh.0 }}</td>
-                                                    <td>{{ eachh.1 }}</td>
-                                                    <td>{{ eachh.2 }}</td>
-                                                    <td>{{ eachh.3 }}</td>
-                                                </tr>
-                                                {% endfor %}
-                                            </table>
-                                        </div>
-                                        <div id="passday" class="tab-pane">
-                                            <table class="table table-hover">
-                                                <tr>
-                                                    <td>时间</td>
-                                                    <td>申请量</td>
-                                                    <td>通过量</td>
-                                                    <td>通过率</td>
-                                                </tr>
-                                                {% for eachd in res_day %}
-                                                <tr>
-                                                    <td>{{ eachd.0 }}</td>
-                                                    <td>{{ eachd.1 }}</td>
-                                                    <td>{{ eachd.2 }}</td>
-                                                    <td>{{ eachd.3 }}</td>
-                                                </tr>
-                                                {% endfor %}
-                                            </table>
-                                        </div>
-                                        <div id="passweek" class="tab-pane">
-                                            <table class="table table-hover">
-                                                <tr>
-                                                    <td>时间</td>
-                                                    <td>申请量</td>
-                                                    <td>通过量</td>
-                                                    <td>通过率</td>
-                                                </tr>
-                                                {% for eachw in res_week %}
-                                                <tr>
-                                                    <td>{{ eachw.0 }}</td>
-                                                    <td>{{ eachw.1 }}</td>
-                                                    <td>{{ eachw.2 }}</td>
-                                                    <td>{{ eachw.3 }}</td>
-                                                </tr>
-                                                {% endfor %}
-                                            </table>
-                                        </div>
-                                        <div id="passmonth" class="tab-pane">
-                                            <table class="table table-hover">
-                                                <tr>
-                                                    <td>时间</td>
-                                                    <td>申请量</td>
-                                                    <td>通过量</td>
-                                                    <td>通过率</td>
-                                                </tr>
-                                                {% for eachm in res_mon %}
-                                                <tr>
-                                                    <td>{{ eachm.0 }}</td>
-                                                    <td>{{ eachm.1 }}</td>
-                                                    <td>{{ eachm.2 }}</td>
-                                                    <td>{{ eachm.3 }}</td>
-                                                </tr>
-                                                {% endfor %}
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
+                </header>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td>时间</td>
+                                    <td>申请量</td>
+                                    <td>通过量</td>
+                                    <td>通过率</td>
+                                </tr>
+                                {% for eachd in res_day %}
+                                <tr>
+                                    <td>{{ eachd.0 }}</td>
+                                    <td>{{ eachd.1 }}</td>
+                                    <td>{{ eachd.2 }}</td>
+                                    <td>{{ eachd.3 }}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                通过量 图表 （点击隐藏）
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <section class="panel">
-                                <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
-                                    <ul class="nav nav-tabs pull-right">
-                                        <li class="">
-                                            <a data-toggle="tab" class="reload" href="#pichour">
-                                                时
-                                            </a>
-                                        </li>
-                                        <li class="active">
-                                            <a data-toggle="tab" class="reload" href="#picday">
-                                                日
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a data-toggle="tab" class="reload" href="#picweek">
-                                                周
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a data-toggle="tab" class="reload" href="#picmonth">
-                                                月
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </header>
-                                <div class="panel-body">
-                                    <div class="tab-content">
-                                        <div id="picday" class="tab-pane active">
-                                            <div id="mainh" style="width: auto;height:400px;"></div>
-                                                <script src="/static/js/echarts.min.js"></script>
-                                                <script src="/static/js/macarons.js"></script>
-                                                <script type="text/javascript">
-                                                    var myCharth = echarts.init(document.getElementById('mainh'), 'macarons');
-                                                    optionh = {
-                                                        tooltip: {
-                                                            trigger: 'axis',
-                                                            axisPointer: {
-                                                                type: 'cross',
-                                                                crossStyle: {
-                                                                    color: '#999'
-                                                                }
-                                                            }
-                                                        },
-                                                        toolbox: {
-                                                            feature: {
-                                                                dataView: {show: true, readOnly: false},
-                                                                magicType: {show: true, type: ['line', 'bar']},
-                                                                restore: {show: true},
-                                                                saveAsImage: {show: true}
-                                                            }
-                                                        },
-                                                        legend: {
-                                                            data:['申请量','通过量','通过率']
-                                                        },
-                                                        xAxis: [
-                                                            {
-                                                                type: 'category',
-                                                                data: [
-                                                                    {% for eachh in res_day %}
-                                                                        '{{ eachh.0 }}',
-                                                                    {% endfor %}
-                                                                ],
-                                                                axisPointer: {
-                                                                    type: 'shadow'
-                                                                }
-                                                            }
-                                                        ],
-                                                        yAxis: [
-                                                            {
-                                                                type: 'value',
-                                                                name: '人次',
-                                                                axisLabel: {
-                                                                    formatter: '{value}'
-                                                                }
-                                                            },
-                                                            {
-                                                                type: 'value',
-                                                                name: '通过率 %',
-                                                                axisLabel: {
-                                                                    formatter: '{value}'
-                                                                }
-                                                            }
-                                                        ],
-                                                        series: [
-                                                            {
-                                                                name:'申请量',
-                                                                type:'bar',
-                                                                data:[
-                                                                    {% for eachh in res_day %}
-                                                                        '{{ eachh.1 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            },
-                                                            {
-                                                                name:'通过量',
-                                                                type:'bar',
-                                                                data:[
-                                                                    {% for eachh in res_day %}
-                                                                        '{{ eachh.2 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            },
-                                                            {
-                                                                name:'通过率',
-                                                                type:'line',
-                                                                yAxisIndex: 1,
-                                                                data:[
-                                                                    {% for eachh in res_day %}
-                                                                        '{{ eachh.3 }}',
-                                                                    {% endfor %}
-                                                                ]
-                                                            }
-                                                        ]
-                                                    };
-                                                    myCharth.setOption(optionh);
-                                                </script>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </section>
         </div>
-    {% endif %}
+    </div>
+    <div class="panel-body col-md-12">
+        <div class="tab-content">
+            <div id="main2" style="width: auto;height:400px;"></div>
+                <script src="/static/js/echarts.min.js"></script>
+                <script src="/static/js/macarons.js"></script>
+                <script type="text/javascript">
+                    var myChart2 = echarts.init(document.getElementById('main2'), 'macarons');
+                    option2 = {
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'cross',
+                                crossStyle: {
+                                    color: '#999'
+                                }
+                            }
+                        },
+                        toolbox: {
+                            feature: {
+                                dataView: {show: true, readOnly: false},
+                                magicType: {show: true, type: ['line', 'bar']},
+                                restore: {show: true},
+                                saveAsImage: {show: true}
+                            }
+                        },
+                        legend: {
+                            data:['资产A','资产B']
+                        },
+                        xAxis: [
+                            {
+                                type: 'category',
+                                data: [
+                                    {% for eachh in res_day %}
+                                        '{{ eachh.0 }}',
+                                    {% endfor %}
+                                ],
+                                axisPointer: {
+                                    type: 'shadow'
+                                }
+                            }
+                        ],
+                        yAxis: [
+                            {
+                                type: 'value',
+                                name: '人次',
+                                axisLabel: {
+                                    formatter: '{value}'
+                                }
+                            },
+                            {
+                                type: 'value',
+                                name: '通过率 %',
+                                axisLabel: {
+                                    formatter: '{value}'
+                                }
+                            }
+                        ],
+                        series: [
+                            {
+                                name:'资产1申请量',
+                                type:'bar',
+                                data:[
+                                    {% for eachh in res_day %}
+                                        '{{ eachh.1 }}',
+                                    {% endfor %}
+                                ]
+                            },
+                            {
+                                name:'资产2申请量',
+                                type:'bar',
+                                data:[
+                                    {% for eachh in res_day %}
+                                        '{{ eachh.2 }}',
+                                    {% endfor %}
+                                ]
+                            },
+                            {
+                                name:'资产1通过率',
+                                type:'line',
+                                yAxisIndex: 1,
+                                data:[
+                                    {% for eachh in res_day %}
+                                        '{{ eachh.3 }}',
+                                    {% endfor %}
+                                ]
+                            },
+                            {
+                                name:'资产2通过率',
+                                type:'line',
+                                yAxisIndex: 1,
+                                data:[
+                                    {% for eachh in res_day %}
+                                        '{{ eachh.3 }}' * 0.5,
+                                    {% endfor %}
+                                ]
+                            }
+                        ]
+                    };
+                    myChart2.setOption(option2);
+                </script>
+        </div>
     </div>
 {% endblock %}

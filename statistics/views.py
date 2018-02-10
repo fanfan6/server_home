@@ -3,7 +3,9 @@ from django.shortcuts import render
 from django.utils.timezone import now, timedelta
 from statistics import models
 from django.db.models import Q
+from django.http import JsonResponse
 
+import json
 import time
 import numpy
 import datetime
@@ -13,6 +15,16 @@ import datetime
 # 客户画像页面记录当前属性状态值
 OPTION = ''
 
+
+def add(request):
+    a = 15
+    b = 30
+    data = {
+        'a': a,
+        'b': b,
+        'sum': a + b
+    }
+    return JsonResponse(data)
 
 # 返回需要查询的过去12时， 12日，12周，12月的时间list
 class get_date(object):
@@ -276,6 +288,7 @@ def mod_grade(request):
                             round(numpy.min(v), 2),
                             round(numpy.percentile(v, 5), 2),
                             round(numpy.percentile(v, 25), 2),
+                            round(numpy.percentile(v, 50), 2),
                             round(numpy.percentile(v, 75), 2),
                             round(numpy.percentile(v, 95), 2),
                             round(numpy.max(v), 2),
@@ -298,7 +311,15 @@ def mod_grade(request):
             # print res1
             # print len(res1)
             # print len(zip(*res1))
-            return render(request, 'mod_grade.html', {'response_day': response_day, 'option': count_basis})
+
+            ## 测试数据
+            aa = [
+                {'module': 'v2', 'test_data': [0.1, 0.01, 0.02, 0.04, 0.08, 0.13, 0.28, 0.42]},
+                {'module': 'v1', 'test_data': [553.22, 385.0, 443.6, 505.0, 554.0, 602.0, 651.0, 692.0]}
+                ]
+            return render(request, 'mod_grade.html', {'response_day': response_day,
+                                                      'option': count_basis,
+                                                      'res_test': aa})
         else:
             return render(request, 'mod_grade.html', {'option': count_basis})
 
@@ -424,6 +445,8 @@ def static_info(request):
         return render(request, 'static_count.html', {'res_count': res_day})
     else:
         return render(request, 'static.html', {'res': 'edu'})
+
+
 
 
 

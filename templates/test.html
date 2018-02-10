@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+<button id="test">ajax加载</button>
+<input type="text" id="a"> + <input type="text" id="b"> = <input type="text" id="c">
+<p id="test_res"></p>
+<script src="/static/js/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#test').click(function () {
+            $.ajax({
+                url: '/test4/add/',
+                type: "POST",
+                data: {
+                    a: 33,
+                    b: 44
+                },
+                success:function (res) {
+                    $('#a').val(res.a);
+                    $('#b').val(res.b);
+                    $('#c').val(res.sum);
+                }
+            });
+            $.getJSON('/test4/add/', function (res1) {
+                $('#a').val(res.a);
+                $('#b').val(res.b);
+                $('#c').val(res.sum);
+            })
+        })
+    })
+</script>
+</body>
+</html>
